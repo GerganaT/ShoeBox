@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
@@ -11,14 +12,14 @@
 <!--    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    android:label="@string/login_fragment_label"
+    app:startDestination="@id/loginFragment">
 
-<resources>
-    <string name="app_name">ShoeBox</string>
-    <string name="email_label">E-mail:</string>
-    <string name="login_fragment_label">Login</string>
-    <string name="email_edit_hint">Your e-mail here</string>
-    <string name="password_label">Password:</string>
-    <string name="password_edit_hint">Your password here</string>
-    <string name="login_button_label">Login</string>
-    <string name="register_button_label">Register</string>
-</resources>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.android.shoebox.LoginFragment"
+        android:label="LoginFragment" />
+</navigation>

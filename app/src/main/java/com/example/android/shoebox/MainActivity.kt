@@ -24,3 +24,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 }
+
+//TODO how to display the login title of the fragment?
+//TODO see how to find the edit view handle color/see stack overflow post saved in bookmarks/

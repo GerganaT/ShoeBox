@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--     Copyright 2021,  Gergana Kirilova-->
+
+<!--    Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--    you may not use this file except in compliance with the License.-->
+<!--    You may obtain a copy of the License at-->
+
+<!--    http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--    Unless required by applicable law or agreed to in writing, software-->
+<!--    distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--    See the License for the specific language governing permissions and-->
+<!--    limitations under the License.-->
+<resources>
+
+    <style name="EditLabelLoginStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_default</item>
+        <item name="android:layout_marginTop">@dimen/margin_default</item>
+        <item name="android:layout_marginEnd">@dimen/margin_default</item>
+        <item name="android:backgroundTint">@color/primaryTextColor</item>
+        <item name="android:ems">10</item>
+        <item name="android:fontFamily">@font/annie_use_your_telescope</item>
+        <item name="android:foregroundTint">@color/primaryTextColor</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColorHighlight">@color/primaryTextColor</item>
+        <item name="android:textColorLink">@color/primaryTextColor</item>
+        <item name="android:textCursorDrawable">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/email_edit_text_size</item>
+    </style>
+</resources>
