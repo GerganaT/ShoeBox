@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
@@ -12,9 +13,23 @@
 <!--    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
-<resources>
-    <color name="primaryColor">#42c3f9</color>
-    <color name="primaryLightColor">#82f6ff</color>
-    <color name="primaryDarkColor">#0093c6</color>
-    <color name="primaryTextColor">#000000</color>
-</resources>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+   xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginFragment">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
