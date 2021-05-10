@@ -17,4 +17,5 @@
     <dimen name="margin_default">16dp</dimen>
     <dimen name="email_edit_text_size">24sp</dimen>
     <dimen name="email_label_text_size">34sp</dimen>
+    <dimen name="no_margin">0dp</dimen>
 </resources>

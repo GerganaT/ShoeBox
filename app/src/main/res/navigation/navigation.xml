@@ -21,5 +21,5 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.android.shoebox.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="@string/login_fragment_label" />
 </navigation>

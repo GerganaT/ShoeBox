@@ -45,6 +45,11 @@
             android:id="@+id/email_edit_text"
             style="@style/EditLabelLoginStyle"
             android:hint="@string/email_edit_hint"
+            android:inputType="textEmailAddress"
+            android:textColorHighlight="@color/editTextHighlight"
+            android:textSelectHandle="@drawable/ic_baseline_keyboard_arrow_up_24"
+            android:textSelectHandleLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:textSelectHandleRight="@drawable/ic_baseline_keyboard_arrow_left_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email_label_text" />
@@ -54,6 +59,10 @@
             style="@style/EditLabelLoginStyle"
             android:hint="@string/password_edit_hint"
             android:inputType="textPassword"
+            android:textColorHighlight="@color/editTextHighlight"
+            android:textSelectHandle="@drawable/ic_baseline_keyboard_arrow_up_24"
+            android:textSelectHandleLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:textSelectHandleRight="@drawable/ic_baseline_keyboard_arrow_left_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password_label_text" />

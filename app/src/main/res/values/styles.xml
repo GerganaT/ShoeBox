@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -15,7 +14,7 @@
 <resources>
 
     <style name="LabelsLoginStyle">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">@dimen/no_margin</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/margin_default</item>
         <item name="android:layout_marginTop">@dimen/margin_default</item>
@@ -27,7 +26,7 @@
     </style>
 
     <style name="EditLabelLoginStyle">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">@dimen/no_margin</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/margin_default</item>
         <item name="android:layout_marginTop">@dimen/margin_default</item>
@@ -38,7 +37,6 @@
         <item name="android:foregroundTint">@color/primaryTextColor</item>
         <item name="android:inputType">textEmailAddress</item>
         <item name="android:textColor">@color/primaryTextColor</item>
-        <item name="android:textColorHighlight">@color/primaryTextColor</item>
         <item name="android:textColorLink">@color/primaryTextColor</item>
         <item name="android:textCursorDrawable">@color/primaryTextColor</item>
         <item name="android:textSize">@dimen/email_edit_text_size</item>
@@ -54,4 +52,5 @@
         <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textStyle">bold</item>
     </style>
+
 </resources>

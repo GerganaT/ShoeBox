@@ -17,13 +17,17 @@ limitations under the License.
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // display custom label for each fragment in the app bar
+        val navController = findNavController(R.id.host_fragment)
+        NavigationUI.setupActionBarWithNavController(this,navController)
+
     }
 }
 
-//TODO how to display the login title of the fragment?
-//TODO see how to find the edit view handle color/see stack overflow post saved in bookmarks/
