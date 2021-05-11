@@ -18,4 +18,7 @@
     <dimen name="email_edit_text_size">24sp</dimen>
     <dimen name="email_label_text_size">34sp</dimen>
     <dimen name="no_margin">0dp</dimen>
+    <dimen name="welcome_screen_subtitle_text_size">34sp</dimen>
+    <dimen name="welcome_screen_title_text_size">48sp</dimen>
+    <dimen name="welcome_screen_title_text_weight">1</dimen>
 </resources>

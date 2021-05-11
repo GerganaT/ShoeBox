@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?>
+<!--    Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -13,7 +14,7 @@
 <!--    limitations under the License.-->
 <resources>
 
-    <style name="LabelsLoginStyle">
+    <style name="LabelsStyle">
         <item name="android:layout_width">@dimen/no_margin</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/margin_default</item>
@@ -51,6 +52,46 @@
         <item name="android:fontFamily">@font/annie_use_your_telescope</item>
         <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/email_edit_text_size</item>
+    </style>
+
+    <style name="WelcomeScreenButtonStyle" parent="ButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/margin_default</item>
+    </style>
+
+    <style name="WelcomeScreenTitleStyle" parent="LabelsStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">@dimen/welcome_screen_title_text_weight</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/welcome_screen_title_text_size</item>
+    </style>
+
+    <style name="WelcomeScreenSubtitleStyle" parent="LabelsStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/margin_default</item>
+        <item name="android:layout_weight">@dimen/welcome_screen_title_text_weight</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/welcome_screen_subtitle_text_size</item>
+    </style>
+
+    <style name="WelcomeScreenShoeImageStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/margin_default</item>
+    </style>
+
+    <style name="EditLabelLoginStyleHandles" parent="EditLabelLoginStyle">
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:textColorHighlight">@color/editTextHighlight</item>
+        <item name="android:textSelectHandle">@drawable/ic_baseline_keyboard_arrow_up_24</item>
+        <item name="android:textSelectHandleLeft">@drawable/ic_baseline_keyboard_arrow_right_24
+        </item>
+        <item name="android:textSelectHandleRight">@drawable/ic_baseline_keyboard_arrow_left_24
+        </item>
     </style>
 
 </resources>
