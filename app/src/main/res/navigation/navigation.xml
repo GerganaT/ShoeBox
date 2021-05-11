@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -14,12 +13,23 @@
 <!--    limitations under the License.-->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     android:label="@string/login_fragment_label"
     app:startDestination="@id/loginFragment">
 
     <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.android.shoebox.WelcomeFragment"
+        android:label="@string/welcome_fragment_label"
+        tools:layout="@layout/fragment_welcome" />
+    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.android.shoebox.LoginFragment"
-        android:label="@string/login_fragment_label" />
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment3"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
 </navigation>
