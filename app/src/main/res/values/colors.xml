@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -13,27 +12,14 @@
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
 <resources>
-<!--    <color name="primaryColor">#42c3f9</color>-->
-<!--    <color name="primaryLightColor">#A2CCCF</color>-->
-<!--    <color name="primaryDarkColor">#0093c6</color>-->
-<!--    <color name="primaryTextColor">#000000</color>-->
-<!--    <color name="editTextHighlight">#A903A9F4</color>-->
+
 
     <color name="primaryColor">#f9e087</color>
-
     <color name="primaryLightColor">#ffffb8</color>
-
     <color name="primaryDarkColor">#c4ae58</color>
-
     <color name="secondaryColor">#26568e</color>
-
     <color name="secondaryLightColor">#5b82bf</color>
-
     <color name="secondaryDarkColor">#002e60</color>
-
     <color name="primaryTextColor">#000000</color>
-
     <color name="secondaryTextColor">#ffffff</color>
-
-    <color name="editTextHighlight">#A903A9F4</color>
 </resources>

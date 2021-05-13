@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -21,4 +20,5 @@
     <dimen name="welcome_screen_subtitle_text_size">34sp</dimen>
     <dimen name="welcome_screen_title_text_size">48sp</dimen>
     <dimen name="welcome_screen_title_text_weight">1</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

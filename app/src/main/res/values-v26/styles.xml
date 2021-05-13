@@ -14,7 +14,7 @@
 <!--    limitations under the License.-->
 <resources>
 
-    <style name="EditLabelLoginStyle">
+    <style name="EditTextStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/margin_default</item>

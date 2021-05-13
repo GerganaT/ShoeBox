@@ -43,7 +43,7 @@
 
         <EditText
             android:id="@+id/email_edit_text"
-            style="@style/EditLabelLoginStyleHandles"
+            style="@style/EditTextStyleHandles"
             android:hint="@string/email_edit_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
 
         <EditText
             android:id="@+id/password_edit_text"
-            style="@style/EditLabelLoginStyleHandles"
+            style="@style/EditTextStyleHandles"
             android:hint="@string/password_edit_hint"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"

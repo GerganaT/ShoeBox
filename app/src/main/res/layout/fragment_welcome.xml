@@ -38,7 +38,7 @@
 
     <Button
         android:id="@+id/welcome_screen_button"
-        style="@style/WelcomeScreenButtonStyle"
+        style="@style/WideButtonStyle"
         android:text="@string/welcome_screen_button_label" />
 </LinearLayout>
 

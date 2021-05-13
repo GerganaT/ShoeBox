@@ -26,41 +26,6 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="EditLabelLoginStyle">
-        <item name="android:layout_width">@dimen/no_margin</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/margin_default</item>
-        <item name="android:layout_marginTop">@dimen/margin_default</item>
-        <item name="android:layout_marginEnd">@dimen/margin_default</item>
-        <item name="android:backgroundTint">@color/primaryTextColor</item>
-        <item name="android:ems">10</item>
-        <item name="android:fontFamily">@font/annie_use_your_telescope</item>
-        <item name="android:foregroundTint">@color/primaryTextColor</item>
-        <item name="android:inputType">textEmailAddress</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
-        <item name="android:textColorLink">@color/primaryTextColor</item>
-        <item name="android:textCursorDrawable">@color/primaryTextColor</item>
-        <item name="android:textSize">@dimen/email_edit_text_size</item>
-    </style>
-
-    <style name="ButtonStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/margin_default</item>
-        <item name="android:layout_marginBottom">@dimen/margin_default</item>
-        <item name="android:backgroundTint">@color/secondaryColor</item>
-        <item name="android:fontFamily">@font/annie_use_your_telescope</item>
-        <item name="android:textColor">@color/secondaryTextColor</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/email_edit_text_size</item>
-    </style>
-
-    <style name="WelcomeScreenButtonStyle" parent="ButtonStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">@dimen/margin_default</item>
-    </style>
-
     <style name="WelcomeScreenTitleStyle" parent="LabelsStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -78,20 +43,57 @@
         <item name="android:textSize">@dimen/welcome_screen_subtitle_text_size</item>
     </style>
 
-    <style name="WelcomeScreenShoeImageStyle">
-        <item name="android:layout_width">match_parent</item>
+    <style name="EditTextStyle">
+        <item name="android:layout_width">@dimen/no_margin</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">@dimen/margin_default</item>
+        <item name="android:layout_marginStart">@dimen/margin_default</item>
+        <item name="android:layout_marginTop">@dimen/margin_default</item>
+        <item name="android:layout_marginEnd">@dimen/margin_default</item>
+        <item name="android:backgroundTint">@color/primaryTextColor</item>
+        <item name="android:ems">10</item>
+        <item name="android:fontFamily">@font/annie_use_your_telescope</item>
+        <item name="android:foregroundTint">@color/primaryTextColor</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColorLink">@color/primaryTextColor</item>
+        <item name="android:textCursorDrawable">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/email_edit_text_size</item>
     </style>
 
-    <style name="EditLabelLoginStyleHandles" parent="EditLabelLoginStyle">
+    <style name="EditTextStyleHandles" parent="EditTextStyle">
         <item name="android:inputType">textEmailAddress</item>
-        <item name="android:textColorHighlight">@color/editTextHighlight</item>
+        <item name="android:textColorHighlight">@color/secondaryColor</item>
         <item name="android:textSelectHandle">@drawable/ic_baseline_keyboard_arrow_up_24</item>
         <item name="android:textSelectHandleLeft">@drawable/ic_baseline_keyboard_arrow_right_24
         </item>
         <item name="android:textSelectHandleRight">@drawable/ic_baseline_keyboard_arrow_left_24
         </item>
     </style>
+
+    <style name="ButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_default</item>
+        <item name="android:layout_marginBottom">@dimen/margin_default</item>
+        <item name="android:backgroundTint">@color/secondaryColor</item>
+        <item name="android:fontFamily">@font/annie_use_your_telescope</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/email_edit_text_size</item>
+    </style>
+
+    <style name="WideButtonStyle" parent="ButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/margin_default</item>
+    </style>
+
+
+    <style name="WelcomeScreenShoeImageStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/margin_default</item>
+    </style>
+
 
 </resources>
