@@ -18,6 +18,7 @@ limitations under the License.
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 
@@ -26,8 +27,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // display custom label for each fragment in the app bar
-        val navController = findNavController(R.id.host_fragment)
-        NavigationUI.setupActionBarWithNavController(this,navController)
+       // val navController = findNavController(R.id.host_fragment)
+       // NavigationUI.setupActionBarWithNavController(this,navController)
+
 
     }
 }

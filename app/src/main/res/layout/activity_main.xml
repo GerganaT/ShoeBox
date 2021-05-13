@@ -22,6 +22,7 @@
     android:orientation="vertical"
     android:background="@color/primaryColor">
 
+
     <fragment
         android:id="@+id/host_fragment"
         android:layout_width="match_parent"

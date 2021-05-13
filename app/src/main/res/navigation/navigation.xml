@@ -17,19 +17,27 @@
     android:id="@+id/navigation"
     android:label="@string/login_fragment_label"
     app:startDestination="@id/loginFragment">
-
-    <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.example.android.shoebox.WelcomeFragment"
-        android:label="@string/welcome_fragment_label"
-        tools:layout="@layout/fragment_welcome" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.android.shoebox.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_welcomeFragment3"
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.android.shoebox.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_instructionsFragment"
+            app:destination="@id/instructionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.example.android.shoebox.InstructionsFragment"
+        android:label="fragment_instructions"
+        tools:layout="@layout/fragment_instructions" />
 </navigation>

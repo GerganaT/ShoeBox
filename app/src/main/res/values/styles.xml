@@ -48,9 +48,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/margin_default</item>
         <item name="android:layout_marginBottom">@dimen/margin_default</item>
-        <item name="android:backgroundTint">@color/primaryDarkColor</item>
+        <item name="android:backgroundTint">@color/secondaryColor</item>
         <item name="android:fontFamily">@font/annie_use_your_telescope</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/email_edit_text_size</item>
     </style>
