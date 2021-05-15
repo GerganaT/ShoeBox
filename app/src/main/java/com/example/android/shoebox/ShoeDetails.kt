@@ -1,10 +1,11 @@
 package com.example.android.shoebox
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+
 /* Copyright 2021,  Gergana Kirilova
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,10 +20,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
-//This class inflates the fragment,which contains the usage instructions
-
-class InstructionsFragment : Fragment() {
+// This class shows detailed info for each shoe pair,stored in the warehouse
+class ShoeDetails : Fragment() {
 
 
     override fun onCreateView(
@@ -30,7 +29,7 @@ class InstructionsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instructions, container, false)
+        return inflater.inflate(R.layout.fragment_shoe_details, container, false)
     }
 
 

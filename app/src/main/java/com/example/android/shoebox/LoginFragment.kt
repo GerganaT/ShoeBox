@@ -23,9 +23,9 @@ import android.view.ViewGroup
 
 
 
-/**
- LoginFragment is used to capture the user's login data.
- */
+
+// LoginFragment is class, used to capture the user's login data.
+
 class LoginFragment : Fragment() {
 
 
