@@ -50,7 +50,6 @@
         <item name="android:layout_marginTop">@dimen/margin_default</item>
         <item name="android:layout_marginEnd">@dimen/margin_default</item>
         <item name="android:backgroundTint">@color/primaryTextColor</item>
-        <item name="android:ems">10</item>
         <item name="android:fontFamily">@font/annie_use_your_telescope</item>
         <item name="android:foregroundTint">@color/primaryTextColor</item>
         <item name="android:inputType">textEmailAddress</item>
@@ -93,6 +92,21 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/margin_default</item>
+    </style>
+
+    <style name="ShoeListLabelStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/annie_use_your_telescope</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="AddShoeFabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/margin_default</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
     </style>
 
 

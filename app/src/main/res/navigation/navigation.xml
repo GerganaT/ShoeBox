@@ -39,5 +39,14 @@
         android:id="@+id/instructionsFragment"
         android:name="com.example.android.shoebox.InstructionsFragment"
         android:label="fragment_instructions"
-        tools:layout="@layout/fragment_instructions" />
+        tools:layout="@layout/fragment_instructions" >
+        <action
+            android:id="@+id/action_instructionsFragment_to_shoeListFragment"
+            app:destination="@id/shoeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeListFragment"
+        android:name="com.example.android.shoebox.ShoeListFragment"
+        android:label="fragment_shoelist"
+        tools:layout="@layout/fragment_shoelist" />
 </navigation>
