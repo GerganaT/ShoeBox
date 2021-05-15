@@ -1,10 +1,3 @@
-package com.example.android.shoebox
-
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 /* Copyright 2021,  Gergana Kirilova
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,8 +13,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-//This class inflates the fragment,which contains the usage instructions
 
+package com.example.android.shoebox
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+
+//This class inflates the fragment,which contains the usage instructions
 class InstructionsFragment : Fragment() {
 
 

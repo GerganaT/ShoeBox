@@ -1,5 +1,3 @@
-package com.example.android.shoebox
-
 /* Copyright 2021,  Gergana Kirilova
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,9 +14,10 @@ limitations under the License.
 */
 
 
-import androidx.appcompat.app.AppCompatActivity
+package com.example.android.shoebox
+
 import android.os.Bundle
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 
@@ -26,9 +25,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // display custom label for each fragment in the app bar
-       // val navController = findNavController(R.id.host_fragment)
-       // NavigationUI.setupActionBarWithNavController(this,navController)
+       //  display custom label for each fragment in the app bar
+         val navController = findNavController(R.id.host_fragment)
+         NavigationUI.setupActionBarWithNavController(this,navController)
 
 
     }

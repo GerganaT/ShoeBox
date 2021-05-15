@@ -1,11 +1,3 @@
-package com.example.android.shoebox
-
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-
 /* Copyright 2021,  Gergana Kirilova
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,6 +12,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
+package com.example.android.shoebox
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+
+
 // This class shows detailed info for each shoe pair,stored in the warehouse
 class ShoeDetails : Fragment() {
 
