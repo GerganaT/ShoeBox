@@ -59,6 +59,21 @@
         <item name="android:textSize">@dimen/email_edit_text_size</item>
     </style>
 
+    <style name="ShoeDetailsEditTextStyle">
+        <item name="android:layout_width">@dimen/no_margin</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_default</item>
+        <item name="android:layout_marginEnd">@dimen/margin_default</item>
+        <item name="android:backgroundTint">@color/primaryTextColor</item>
+        <item name="android:fontFamily">@font/annie_use_your_telescope</item>
+        <item name="android:foregroundTint">@color/primaryTextColor</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColorLink">@color/primaryTextColor</item>
+        <item name="android:textCursorDrawable">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/email_edit_text_size</item>
+    </style>
+
     <style name="EditTextStyleHandles" parent="EditTextStyle">
         <item name="android:inputType">textEmailAddress</item>
         <item name="android:textColorHighlight">@color/secondaryColor</item>

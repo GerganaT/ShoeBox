@@ -35,11 +35,11 @@
         android:textSize="@dimen/shoe_info_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shoe_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text"
         tools:text="2 left in stock" />
 
     <TextView
-        android:id="@+id/shoe_name_text"
+        android:id="@+id/shoe_name_label_text"
         style="@style/ShoeListLabelStyle"
         android:textSize="@dimen/shoe_name_text_size"
         android:textStyle="bold"

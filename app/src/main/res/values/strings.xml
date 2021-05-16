@@ -34,4 +34,10 @@
     <string name="inventory_button_label">view inventory</string>
     <string name="add_shoe_item_fab_content_description">Round dark-blue button with a black plus sign</string>
     <string name="more_icon_image_content_description">three black dots aligned vertically</string>
+    <string name="shoe_name_label_string">Shoe name</string>
+    <string name="shoe_brand_label_string">Brand</string>
+    <string name="available_sizes_label_string">Available sizes</string>
+    <string name="shoe_description_label_string">Description</string>
+    <string name="shoe_details_save_button_label">Save</string>
+    <string name="shoe_details_cancel_button_label">Cancel</string>
 </resources>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -12,16 +11,90 @@
 <!--    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShoeDetails">
 
-    <!-- TODO: create the design for the shoe details fragment-->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/shoe_details_save_button"
+        style="@style/ButtonStyle"
+        android:text="@string/shoe_details_save_button_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/shoe_details_cancel_button"
+        style="@style/ButtonStyle"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:text="@string/shoe_details_cancel_button_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/shoe_name_edit_text"
+        style="@style/ShoeDetailsEditTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text"
+        tools:text="Ballerinas" />
+
+    <EditText
+        android:id="@+id/shoe_brand_edit_text"
+        style="@style/ShoeDetailsEditTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_brand_label_text"
+        tools:text="&quot;Hush Puppies&quot;" />
+
+    <EditText
+        android:id="@+id/available_sizes_edit_text"
+        style="@style/ShoeDetailsEditTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/available_sizes_label_text"
+        tools:text="36,37" />
+
+    <EditText
+        android:id="@+id/shoe_description_edit_text"
+        style="@style/ShoeDetailsEditTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_description_label_text"
+        tools:text="red shoes with white dots" />
+
+    <TextView
+        android:id="@+id/shoe_name_label_text"
+        style="@style/LabelsStyle"
+        android:text="@string/shoe_name_label_string"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/shoe_brand_label_text"
+        style="@style/LabelsStyle"
+        android:text="@string/shoe_brand_label_string"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_name_edit_text" />
+
+    <TextView
+        android:id="@+id/available_sizes_label_text"
+        style="@style/LabelsStyle"
+        android:text="@string/available_sizes_label_string"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_brand_edit_text" />
+
+    <TextView
+        android:id="@+id/shoe_description_label_text"
+        style="@style/LabelsStyle"
+        android:text="@string/shoe_description_label_string"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/available_sizes_edit_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
