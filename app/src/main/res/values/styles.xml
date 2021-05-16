@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--    Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--    Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -107,6 +106,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/margin_default</item>
+        <item name="android:src">@drawable/shoes_welcome_screen_</item>
     </style>
 
     <style name="ShoeListLabelStyle">
@@ -122,6 +122,15 @@
         <item name="android:layout_margin">@dimen/margin_default</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
+        <item name="android:src">@drawable/ic_baseline_add_24</item>
+        <item name="backgroundTint">@color/secondaryDarkColor</item>
+    </style>
+
+    <style name="ShoeListItemMoreIconStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">@string/more_icon_image_content_description</item>
+        <item name="srcCompat">@drawable/ic_baseline_more_vert_24</item>
     </style>
 
 

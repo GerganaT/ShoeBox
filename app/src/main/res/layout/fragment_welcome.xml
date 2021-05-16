@@ -27,7 +27,6 @@
 
     <ImageView
         android:id="@+id/welcome_screen_shoes_image"
-        android:src="@drawable/shoes_welcome_screen_"
         tools:ignore="ContentDescription"
         style="@style/WelcomeScreenShoeImageStyle" />
 

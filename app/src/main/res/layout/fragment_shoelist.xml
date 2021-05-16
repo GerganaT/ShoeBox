@@ -27,8 +27,7 @@
             android:layout_marginBottom="@dimen/scroll_view_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/in_scroll_linear_layout"
@@ -47,12 +46,8 @@
             android:id="@+id/add_shoe_item_fab"
             style="@style/AddShoeFabStyle"
             android:contentDescription="@string/add_shoe_item_fab_content_description"
-            android:src="@drawable/ic_baseline_add_24"
-            app:backgroundTint="@color/secondaryDarkColor"
-            app:fabSize="auto"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:maxImageSize="@dimen/add_shoe_item_fab_icon_size" />
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
