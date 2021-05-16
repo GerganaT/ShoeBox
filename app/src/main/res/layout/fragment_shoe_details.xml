@@ -16,7 +16,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShoeDetails">
+    tools:context=".ShoeDetailsFragment">
 
     <Button
         android:id="@+id/shoe_details_save_button"

@@ -23,7 +23,7 @@ import androidx.fragment.app.Fragment
 
 
 // This class shows detailed info for each shoe pair,stored in the warehouse
-class ShoeDetails : Fragment() {
+class ShoeDetailsFragment : Fragment() {
 
 
     override fun onCreateView(
