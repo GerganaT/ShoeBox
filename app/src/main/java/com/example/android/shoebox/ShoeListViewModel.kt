@@ -15,10 +15,16 @@ limitations under the License.
 
 package com.example.android.shoebox
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 // class that handles the shoe-data-related operations in the app
 class ShoeListViewModel : ViewModel() {
+
+    private val _shoeList = MutableLiveData<Shoes>()
+    val shoeList: LiveData<Shoes>
+        get() = _shoeList
 
 
 }
