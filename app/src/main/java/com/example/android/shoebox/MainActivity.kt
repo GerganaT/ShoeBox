@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
+  //TODO see answer from mentor/todayz folder and continue
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.shoe_menu,menu)
         return super.onCreateOptionsMenu(menu)
