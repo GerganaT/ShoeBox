@@ -19,7 +19,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.example.android.shoebox.databinding.FragmentShoeDetailsBinding
 
 
 // This class shows detailed info for each shoe pair,stored in the warehouse
@@ -30,8 +32,11 @@ class ShoeDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val shoeDetailsBinding: FragmentShoeDetailsBinding = DataBindingUtil.inflate(
+            inflater,R.layout.fragment_shoe_details,container,false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shoe_details, container, false)
+        return shoeDetailsBinding.root
     }
 
 

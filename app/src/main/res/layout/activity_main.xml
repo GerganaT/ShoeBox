@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -13,23 +12,26 @@
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:background="@color/primaryColor">
+    xmlns:tools="http://schemas.android.com/tools">
 
-
-    <fragment
-        android:id="@+id/host_fragment"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/navigation"
-        app:defaultNavHost="true"
-        />
+        android:background="@color/primaryColor"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-</LinearLayout>
+
+        <fragment
+            android:id="@+id/host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/navigation" />
+
+    </LinearLayout>
+
+</layout>

@@ -12,32 +12,36 @@
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".WelcomeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/welcome_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".WelcomeFragment">
 
 
-    <TextView
-        android:id="@+id/welcome_screen_title_text"
-        style="@style/WelcomeScreenTitleStyle"
-        android:text="@string/welcome_screen_greeting" />
+        <Button
+            android:id="@+id/welcome_screen_button"
+            style="@style/WideButtonStyle"
+            android:text="@string/welcome_screen_button_label" />
 
-    <ImageView
-        android:id="@+id/welcome_screen_shoes_image"
-        tools:ignore="ContentDescription"
-        style="@style/WelcomeScreenShoeImageStyle" />
+        <ImageView
+            android:id="@+id/welcome_screen_shoes_image"
+            style="@style/WelcomeScreenShoeImageStyle"
+            tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/welcome_screen_subtitle_text"
-        style="@style/WelcomeScreenSubtitleStyle"
-        android:text="@string/welcome_screen_subtitle" />
+        <TextView
+            android:id="@+id/welcome_screen_subtitle_text"
+            style="@style/WelcomeScreenSubtitleStyle"
+            android:text="@string/welcome_screen_subtitle" />
 
-    <Button
-        android:id="@+id/welcome_screen_button"
-        style="@style/WideButtonStyle"
-        android:text="@string/welcome_screen_button_label" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/welcome_screen_title_text"
+            style="@style/WelcomeScreenTitleStyle"
+            android:text="@string/welcome_screen_greeting" />
+    </LinearLayout>
 
+</layout>

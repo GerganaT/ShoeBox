@@ -18,16 +18,23 @@ package com.example.android.shoebox
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.android.shoebox.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        val mainBinding: ActivityMainBinding = DataBindingUtil.setContentView(
+            this,R.layout.activity_main)
+
        //  display custom label for each fragment in the app bar
          val navController = findNavController(R.id.host_fragment)
          NavigationUI.setupActionBarWithNavController(this,navController)
+
+
 
 
     }
