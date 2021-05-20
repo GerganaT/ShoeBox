@@ -15,6 +15,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="welcomeFragment"
+            type="com.example.android.shoebox.WelcomeFragment" />
+    </data>
+
     <LinearLayout
         android:id="@+id/welcome_root"
         android:layout_width="match_parent"
@@ -23,10 +29,10 @@
         tools:context=".WelcomeFragment">
 
 
-        <Button
-            android:id="@+id/welcome_screen_button"
-            style="@style/WideButtonStyle"
-            android:text="@string/welcome_screen_button_label" />
+        <TextView
+            android:id="@+id/welcome_screen_title_text"
+            style="@style/WelcomeScreenTitleStyle"
+            android:text="@string/welcome_screen_greeting" />
 
         <ImageView
             android:id="@+id/welcome_screen_shoes_image"
@@ -38,10 +44,11 @@
             style="@style/WelcomeScreenSubtitleStyle"
             android:text="@string/welcome_screen_subtitle" />
 
-        <TextView
-            android:id="@+id/welcome_screen_title_text"
-            style="@style/WelcomeScreenTitleStyle"
-            android:text="@string/welcome_screen_greeting" />
+        <Button
+            android:id="@+id/welcome_screen_button"
+            style="@style/WideButtonStyle"
+            android:text="@string/welcome_screen_button_label"
+            android:onClick="@{() -> welcomeFragment.onInstructionsButtonClicked()}"/>
     </LinearLayout>
 
 </layout>

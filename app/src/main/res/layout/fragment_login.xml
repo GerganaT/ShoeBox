@@ -18,6 +18,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="loginFragment"
+            type="com.example.android.shoebox.LoginFragment" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_root"
@@ -29,12 +34,14 @@
             android:id="@+id/login_button"
             style="@style/ButtonStyle"
             android:text="@string/login_button_label"
+            android:onClick="@{ () ->loginFragment.onLoginOrRegisterButtonClicked()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/register_button"
             style="@style/ButtonStyle"
+            android:onClick="@{ ()->loginFragment.onLoginOrRegisterButtonClicked()}"
             android:layout_marginEnd="@dimen/margin_default"
             android:text="@string/register_button_label"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -73,5 +80,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
 
