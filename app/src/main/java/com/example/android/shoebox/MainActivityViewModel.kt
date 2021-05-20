@@ -20,11 +20,29 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 // class that handles the shoe-data-related operations in the app
-class ShoeListViewModel : ViewModel() {
+class MainActivityViewModel : ViewModel() {
 
-    private val _shoeList = MutableLiveData<Shoes>()
-    val shoeList: LiveData<Shoes>
-        get() = _shoeList
+    private lateinit var shoesList: MutableList<Shoes>
+
+    private val _shoesListLiveData = MutableLiveData<MutableList<Shoes>>()
+    val shoesListLiveData: LiveData<MutableList<Shoes>>
+        get() = _shoesListLiveData
+
+    init {
+      initializeShoeList()
+    }
+
+
+  private  fun initializeShoeList() {
+        shoesList = mutableListOf(
+            Shoes(
+                "ballerinas", "FancyBrand",
+                "36,37", "lovely casual shoes"
+            )
+        )
+
+        _shoesListLiveData.value = shoesList
+    }
 
 
 }

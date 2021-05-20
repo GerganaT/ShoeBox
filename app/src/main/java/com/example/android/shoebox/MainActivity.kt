@@ -21,11 +21,15 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.shoebox.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mainActivityViewModel: MainActivityViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,6 +39,8 @@ class MainActivity : AppCompatActivity() {
        //  display custom label for each fragment in the app bar
          val navController = findNavController(R.id.host_fragment)
          NavigationUI.setupActionBarWithNavController(this,navController)
+       //associate the main activity with the proper view model
+        mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
 
 
