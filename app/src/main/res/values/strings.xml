@@ -42,4 +42,5 @@
     <string name="shoe_details_cancel_button_label">Cancel</string>
     <string name="menu_item_logout_label">Logout</string>
     <string name="menu_item_details_label">View or adjust details</string>
+    <string name="quote_format">\"%s\"</string>
 </resources>

@@ -23,17 +23,21 @@ import androidx.lifecycle.ViewModel
 class MainActivityViewModel : ViewModel() {
 
     private lateinit var shoesList: MutableList<Shoes>
+    lateinit var shoeName: String
+    lateinit var shoeBrand: String
+    lateinit var shoeSize: String
+    lateinit var shoeDescription: String
 
     private val _shoesListLiveData = MutableLiveData<MutableList<Shoes>>()
     val shoesListLiveData: LiveData<MutableList<Shoes>>
         get() = _shoesListLiveData
 
     init {
-      initializeShoeList()
+      populateShoeData()
     }
+//TODO later replace index literal by the specific item index, selected by the user in the list
 
-
-  private  fun initializeShoeList() {
+  private  fun populateShoeData() {
         shoesList = mutableListOf(
             Shoes(
                 "ballerinas", "FancyBrand",
@@ -42,6 +46,13 @@ class MainActivityViewModel : ViewModel() {
         )
 
         _shoesListLiveData.value = shoesList
+        shoeName = shoesList[0].shoeName
+        shoeBrand = shoesList[0].shoeBrand
+        shoeSize = shoesList[0].shoeSize
+        shoeDescription = shoesList[0].shoeDescription
+
+
+
     }
 
 

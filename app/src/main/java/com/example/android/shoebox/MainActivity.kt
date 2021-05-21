@@ -21,34 +21,30 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.shoebox.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainActivityViewModel: MainActivityViewModel
+    lateinit var mainActivityViewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val mainBinding: ActivityMainBinding = DataBindingUtil.setContentView(
-            this,R.layout.activity_main)
+            this, R.layout.activity_main
+        )
 
-       //  display custom label for each fragment in the app bar
-         val navController = findNavController(R.id.host_fragment)
-         NavigationUI.setupActionBarWithNavController(this,navController)
-       //associate the main activity with the proper view model
-        mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-
-
-
+        //  display custom label for each fragment in the app bar
+        val navController = findNavController(R.id.host_fragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
 
     }
-  //TODO see answer from mentor/todayz folder and continue
+
+    //TODO see answer from mentor/todayz folder and continue
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.shoe_menu,menu)
+        menuInflater.inflate(R.menu.shoe_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 

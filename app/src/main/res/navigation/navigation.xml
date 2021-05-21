@@ -51,7 +51,7 @@
         android:label="fragment_shoelist"
         tools:layout="@layout/fragment_shoelist">
         <action
-            android:id="@+id/custom"
+            android:id="@+id/action_shoeListFragment_to_shoeDetailsFragment"
             app:destination="@id/shoe_details_destination" />
 
     </fragment>

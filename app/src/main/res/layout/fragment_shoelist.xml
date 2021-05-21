@@ -16,6 +16,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ShoeListFragment">
 
+    <data>
+        <variable
+            name="shoeListFragment"
+            type="com.example.android.shoebox.ShoeListFragment" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/shoe_list_root"
         android:layout_width="match_parent"
@@ -48,7 +54,8 @@
             style="@style/AddShoeFabStyle"
             android:contentDescription="@string/add_shoe_item_fab_content_description"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> shoeListFragment.onFabClicked()}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
