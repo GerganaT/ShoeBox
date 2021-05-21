@@ -40,34 +40,34 @@
         <EditText
             android:id="@+id/shoe_name_edit_text"
             style="@style/ShoeDetailsEditTextStyle"
+            android:text="@{viewModel.shoeName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text"
-            tools:text="Ballerinas" />
+            app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text" />
 
         <EditText
             android:id="@+id/shoe_brand_edit_text"
             style="@style/ShoeDetailsEditTextStyle"
+            android:text="@{@string/quote_format(viewModel.shoeBrand)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shoe_brand_label_text"
-            tools:text="&quot;Hush Puppies&quot;" />
+            app:layout_constraintTop_toBottomOf="@+id/shoe_brand_label_text" />
 
         <EditText
             android:id="@+id/available_sizes_edit_text"
             style="@style/ShoeDetailsEditTextStyle"
+            android:text="@{viewModel.shoeSize}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/available_sizes_label_text"
-            tools:text="36,37" />
+            app:layout_constraintTop_toBottomOf="@+id/available_sizes_label_text" />
 
         <EditText
             android:id="@+id/shoe_description_edit_text"
             style="@style/ShoeDetailsEditTextStyle"
+            android:text="@{viewModel.shoeDescription}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shoe_description_label_text"
-            tools:text="red shoes with white dots" />
+            app:layout_constraintTop_toBottomOf="@+id/shoe_description_label_text" />
 
         <TextView
             android:id="@+id/shoe_name_label_text"
@@ -102,5 +102,12 @@
             app:layout_constraintTop_toBottomOf="@+id/available_sizes_edit_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.shoebox.MainActivityViewModel" />
+    </data>
 
 </layout>

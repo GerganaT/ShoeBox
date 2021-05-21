@@ -22,10 +22,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoelistBinding
 
 // This class inflates the list of shoes in the shoe inventory
 class ShoeListFragment : Fragment() {
+
+    private lateinit var shoeDetailsAction: NavDirections
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +39,20 @@ class ShoeListFragment : Fragment() {
     ): View? {
 
         val shoeListBinding: FragmentShoelistBinding = DataBindingUtil.inflate(
-            inflater,R.layout.fragment_shoelist,container,false)
+            inflater, R.layout.fragment_shoelist, container, false
+        )
+
+        val parentActivityViewModel: MainActivityViewModel by activityViewModels()
+
+        shoeDetailsAction =
+            ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment()
+
+        shoeListBinding.shoeListFragment = this
+
         return shoeListBinding.root
+    }
+
+    fun onFabClicked() {
+        findNavController().navigate(shoeDetailsAction)
     }
 }

@@ -21,6 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.android.shoebox.databinding.FragmentShoeDetailsBinding
 
 
@@ -34,7 +35,13 @@ class ShoeDetailsFragment : Fragment() {
     ): View? {
 
         val shoeDetailsBinding: FragmentShoeDetailsBinding = DataBindingUtil.inflate(
-            inflater,R.layout.fragment_shoe_details,container,false)
+            inflater, R.layout.fragment_shoe_details, container, false
+        )
+
+        val parentActivityViewModel: MainActivityViewModel by activityViewModels()
+
+        shoeDetailsBinding.viewModel = parentActivityViewModel
+
         // Inflate the layout for this fragment
         return shoeDetailsBinding.root
     }
