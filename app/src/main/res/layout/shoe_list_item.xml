@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -13,36 +12,46 @@
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
 
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="@dimen/margin_default">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/more_icon_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/ShoeListItemMoreIconStyle" />
+    <data>
+        <variable
+            name="shoeListItemData"
+            type="com.example.android.shoebox.ShoeListFragment" />
+    </data>
 
-    <TextView
-        android:id="@+id/shoe_info_text"
-        style="@style/ShoeListLabelStyle"
-        android:textSize="@dimen/shoe_info_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text"
-        tools:text="2 left in stock" />
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-    <TextView
-        android:id="@+id/shoe_name_label_text"
-        style="@style/ShoeListLabelStyle"
-        android:textSize="@dimen/shoe_name_text_size"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Ballerinas" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default">
+
+        <ImageView
+            android:id="@+id/info_icon_image"
+            style="@style/ShoeListItemInfoIconStyle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/shoe_size_info_text"
+            style="@style/ShoeListLabelStyle"
+            android:textSize="@dimen/shoe_info_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text"
+            tools:text=" Sizes left: 36,37" />
+
+        <TextView
+            android:id="@+id/shoe_name_label_text"
+            style="@style/ShoeListLabelStyle"
+            android:textSize="@dimen/shoe_name_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ballerinas" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

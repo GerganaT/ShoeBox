@@ -126,11 +126,11 @@
         <item name="backgroundTint">@color/secondaryDarkColor</item>
     </style>
 
-    <style name="ShoeListItemMoreIconStyle">
+    <style name="ShoeListItemInfoIconStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:contentDescription">@string/more_icon_image_content_description</item>
-        <item name="srcCompat">@drawable/ic_baseline_more_vert_24</item>
+        <item name="srcCompat">@drawable/ic_baseline_info_24</item>
     </style>
 
 </resources>

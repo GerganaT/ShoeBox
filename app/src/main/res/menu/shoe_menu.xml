@@ -19,8 +19,4 @@
         android:id="@+id/menu_item_logout"
         android:title="@string/menu_item_logout_label"
         app:showAsAction="collapseActionView" />
-    <item
-        android:id="@+id/menu_item_details"
-        android:title="@string/menu_item_details_label"
-        app:showAsAction="collapseActionView" />
 </menu>

@@ -32,6 +32,8 @@ class ShoeListFragment : Fragment() {
 
     private lateinit var shoeDetailsAction: NavDirections
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,4 +57,5 @@ class ShoeListFragment : Fragment() {
     fun onFabClicked() {
         findNavController().navigate(shoeDetailsAction)
     }
+
 }

@@ -43,4 +43,5 @@
     <string name="menu_item_logout_label">Logout</string>
     <string name="menu_item_details_label">View or adjust details</string>
     <string name="quote_format">\"%s\"</string>
+    <string name="shoe_sizes_left_format">Sizes left: %s</string>
 </resources>
