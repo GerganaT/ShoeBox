@@ -15,35 +15,38 @@ limitations under the License.
 
 package com.example.android.shoebox
 
+import android.util.Log
+import androidx.databinding.Bindable
+import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+
 // class that handles the shoe-data-related operations in the app
 class MainActivityViewModel : ViewModel() {
 
-    private lateinit var shoesList: MutableList<Shoes>
-    lateinit var shoeName: String
-    lateinit var shoeBrand: String
-    lateinit var shoeSize: String
-    lateinit var shoeDescription: String
 
+    var shoeName: String = ""
+    var shoeBrand: String = ""
+    var shoeSize: String = ""
+    var shoeDescription: String = ""
     private val _shoesListLiveData = MutableLiveData<MutableList<Shoes>>()
     val shoesListLiveData: LiveData<MutableList<Shoes>>
         get() = _shoesListLiveData
 
-    init {
-      populateShoeData()
-    }
-//TODO later replace index literal by the specific item index, selected by the user in the list
 
-  private  fun populateShoeData() {
-        shoesList = mutableListOf(
-            Shoes(
-                "ballerinas", "FancyBrand",
-                "36,37", "lovely casual shoes"
-            )
-        )
+    private val shoesList: MutableList<Shoes> = mutableListOf()
+
+
+    init {
+        //  populateShoeData()
+    }
+
+    //TODO later replace index literal by the specific item index, selected by the user in the list
+    //TODO also this function should be called from the clicker for the individual list item
+    private fun populateShoeData() {
+
 
         _shoesListLiveData.value = shoesList
         shoeName = shoesList[0].shoeName
@@ -52,8 +55,19 @@ class MainActivityViewModel : ViewModel() {
         shoeDescription = shoesList[0].shoeDescription
 
 
+    }
+
+    //TODO make this populate the list when clicked away and remove log
+    fun onSaveClicked() {
+
+        shoesList.add(Shoes(shoeName, shoeBrand, shoeSize, shoeDescription))
+
+        Log.i("MainActivityViewModel" ,"$shoeName , $shoeBrand , $shoeSize , $shoesList")
+
 
     }
+
+
 
 
 }

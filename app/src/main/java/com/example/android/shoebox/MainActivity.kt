@@ -27,7 +27,6 @@ import com.example.android.shoebox.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var mainActivityViewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         //  display custom label for each fragment in the app bar
         val navController = findNavController(R.id.host_fragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
+
+       mainBinding.lifecycleOwner = this
 
     }
 

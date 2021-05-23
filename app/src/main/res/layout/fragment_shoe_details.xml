@@ -27,7 +27,8 @@
             style="@style/ButtonStyle"
             android:text="@string/shoe_details_save_button_label"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{() -> viewModel.onSaveClicked()}"/>
 
         <Button
             android:id="@+id/shoe_details_cancel_button"
@@ -40,7 +41,7 @@
         <EditText
             android:id="@+id/shoe_name_edit_text"
             style="@style/ShoeDetailsEditTextStyle"
-            android:text="@{viewModel.shoeName}"
+            android:text="@={viewModel.shoeName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text" />
@@ -48,7 +49,7 @@
         <EditText
             android:id="@+id/shoe_brand_edit_text"
             style="@style/ShoeDetailsEditTextStyle"
-            android:text="@{@string/quote_format(viewModel.shoeBrand)}"
+            android:text="@={viewModel.shoeBrand}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_brand_label_text" />
@@ -56,7 +57,7 @@
         <EditText
             android:id="@+id/available_sizes_edit_text"
             style="@style/ShoeDetailsEditTextStyle"
-            android:text="@{viewModel.shoeSize}"
+            android:text="@={viewModel.shoeSize}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/available_sizes_label_text" />
@@ -64,7 +65,7 @@
         <EditText
             android:id="@+id/shoe_description_edit_text"
             style="@style/ShoeDetailsEditTextStyle"
-            android:text="@{viewModel.shoeDescription}"
+            android:text="@={viewModel.shoeDescription}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_description_label_text" />
@@ -109,5 +110,6 @@
             name="viewModel"
             type="com.example.android.shoebox.MainActivityViewModel" />
     </data>
+
 
 </layout>

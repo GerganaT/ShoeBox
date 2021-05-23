@@ -42,6 +42,7 @@ class ShoeDetailsFragment : Fragment() {
 
         shoeDetailsBinding.viewModel = parentActivityViewModel
 
+
         // Inflate the layout for this fragment
         return shoeDetailsBinding.root
     }
