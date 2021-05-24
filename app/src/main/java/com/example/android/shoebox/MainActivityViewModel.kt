@@ -16,8 +16,6 @@ limitations under the License.
 package com.example.android.shoebox
 
 import android.util.Log
-import androidx.databinding.Bindable
-import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,47 +25,55 @@ import androidx.lifecycle.ViewModel
 class MainActivityViewModel : ViewModel() {
 
 
-    var shoeName: String = ""
-    var shoeBrand: String = ""
-    var shoeSize: String = ""
-    var shoeDescription: String = ""
-    private val _shoesListLiveData = MutableLiveData<MutableList<Shoes>>()
-    val shoesListLiveData: LiveData<MutableList<Shoes>>
+    val shoeName = MutableLiveData<String>()
+
+
+    val shoeBrand = MutableLiveData<String>()
+
+    val shoeSize = MutableLiveData<String>()
+
+
+    val shoeDescription = MutableLiveData<String>()
+
+    private val _shoeDetailIsNull = MutableLiveData<Boolean>()
+    val shoeDetailIsNull: LiveData<Boolean>
+        get() = _shoeDetailIsNull
+
+    private val _shoesListLiveData = MutableLiveData<MutableList<Shoe>>()
+    val shoesListLiveData: LiveData<MutableList<Shoe>>
         get() = _shoesListLiveData
 
 
-    private val shoesList: MutableList<Shoes> = mutableListOf()
-
-
     init {
-        //  populateShoeData()
-    }
-
-    //TODO later replace index literal by the specific item index, selected by the user in the list
-    //TODO also this function should be called from the clicker for the individual list item
-    private fun populateShoeData() {
-
-
-        _shoesListLiveData.value = shoesList
-        shoeName = shoesList[0].shoeName
-        shoeBrand = shoesList[0].shoeBrand
-        shoeSize = shoesList[0].shoeSize
-        shoeDescription = shoesList[0].shoeDescription
+        _shoesListLiveData.value = mutableListOf()
 
 
     }
 
-    //TODO make this populate the list when clicked away and remove log
-    fun onSaveClicked() {
+    fun saveDetailData() {
 
-        shoesList.add(Shoes(shoeName, shoeBrand, shoeSize, shoeDescription))
+        if ((shoeName.value.isNullOrEmpty()) || (shoeBrand.value.isNullOrEmpty())
+            || (shoeSize.value.isNullOrEmpty()) || (shoeDescription.value.isNullOrEmpty())
+        ) {
+            _shoeDetailIsNull.value = true
+            Log.i("MainActivityViewModel", "shoeDetailsIsNull is ${_shoeDetailIsNull.value}")
 
-        Log.i("MainActivityViewModel" ,"$shoeName , $shoeBrand , $shoeSize , $shoesList")
+            return
+        } else {
+
+            _shoesListLiveData.value?.add(
+                Shoe(
+                    shoeName.value,
+                    shoeBrand.value,
+                    shoeSize.value,
+                    shoeDescription.value
+                )
+            )
+            _shoeDetailIsNull.value = false
 
 
+        }
     }
-
-
 
 
 }

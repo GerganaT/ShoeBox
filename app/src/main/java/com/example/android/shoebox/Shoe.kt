@@ -19,7 +19,7 @@ limitations under the License.
 package com.example.android.shoebox
 
 // class to store the data for every shoe pair
-data class Shoes(
-    val shoeName: String, val shoeBrand: String, val shoeSize: String,
-    val shoeDescription: String,
+data class Shoe(
+    val shoeName: String?, val shoeBrand: String?, val shoeSize: String?,
+    val shoeDescription: String?,
 )

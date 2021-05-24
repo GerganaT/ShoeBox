@@ -19,15 +19,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoeDetailsBinding
-
 
 // This class shows detailed info for each shoe pair,stored in the warehouse
 class ShoeDetailsFragment : Fragment() {
 
+    lateinit var shoeDetailsToShoeListAction: NavDirections
+
+    lateinit var viewModel: MainActivityViewModel
+
+    lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +47,48 @@ class ShoeDetailsFragment : Fragment() {
         )
 
         val parentActivityViewModel: MainActivityViewModel by activityViewModels()
-
+        viewModel = parentActivityViewModel
         shoeDetailsBinding.viewModel = parentActivityViewModel
+        shoeDetailsBinding.shoeDetailsFragment = this
+
+        shoeDetailsBinding.lifecycleOwner = this
+
+        shoeDetailsToShoeListAction =
+            ShoeDetailsFragmentDirections.actionShoeDetailsDestinationToShoeListDestination()
+
+        navController = findNavController()
 
 
         // Inflate the layout for this fragment
         return shoeDetailsBinding.root
     }
 
+    fun onSaveClicked() {
+
+        viewModel.saveDetailData()
+        viewModel.shoeDetailIsNull.observe(this, { shoeDetailsIsNull ->
+
+            if (shoeDetailsIsNull) {
+                Toast.makeText(activity, "Please enter all details", Toast.LENGTH_SHORT).show()
+            } else {
+
+                Toast.makeText(activity, "Shoe entry saved", Toast.LENGTH_SHORT).show()
+              //  navController.navigate(shoeDetailsToShoeListAction) //- not working
+            }
+
+
+        })
+        // had to set the navigation here as the app kept on crashing if put in the else-clause
+        // of the observer
+        if (viewModel.shoeDetailIsNull.value == false) {
+            findNavController().navigate(shoeDetailsToShoeListAction)
+        }
+    }
+
+    fun onCancelClicked() {
+        navController.navigate(shoeDetailsToShoeListAction)
+    }
 
 }
+
+

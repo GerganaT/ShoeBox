@@ -52,8 +52,7 @@ class ShoeListFragment : Fragment() {
 
         shoeListBinding.shoeListFragment = this
 
-        shoeListBinding.lifecycleOwner = this
-
+       shoeListBinding.lifecycleOwner = this
 
 
         return shoeListBinding.root

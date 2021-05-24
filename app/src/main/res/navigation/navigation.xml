@@ -61,5 +61,8 @@
         android:label="fragment_shoe_details"
         tools:layout="@layout/fragment_shoe_details">
 
+        <action
+            android:id="@+id/action_shoe_details_destination_to_shoe_list_destination"
+            app:destination="@id/shoe_list_destination" />
     </fragment>
 </navigation>

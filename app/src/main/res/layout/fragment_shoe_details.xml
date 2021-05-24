@@ -25,10 +25,10 @@
         <Button
             android:id="@+id/shoe_details_save_button"
             style="@style/ButtonStyle"
+            android:onClick="@{() -> shoeDetailsFragment.onSaveClicked()}"
             android:text="@string/shoe_details_save_button_label"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{() -> viewModel.onSaveClicked()}"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/shoe_details_cancel_button"
@@ -36,7 +36,8 @@
             android:layout_marginEnd="@dimen/margin_default"
             android:text="@string/shoe_details_cancel_button_label"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> shoeDetailsFragment.onCancelClicked()}"/>
 
         <EditText
             android:id="@+id/shoe_name_edit_text"
@@ -109,6 +110,10 @@
         <variable
             name="viewModel"
             type="com.example.android.shoebox.MainActivityViewModel" />
+        <variable
+            name="shoeDetailsFragment"
+            type="com.example.android.shoebox.ShoeDetailsFragment" />
+
     </data>
 
 

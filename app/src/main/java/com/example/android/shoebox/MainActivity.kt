@@ -39,8 +39,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.host_fragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
 
-       mainBinding.lifecycleOwner = this
-
     }
 
     //TODO see answer from mentor/todayz folder and continue
