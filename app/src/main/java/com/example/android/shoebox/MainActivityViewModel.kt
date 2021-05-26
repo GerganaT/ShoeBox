@@ -70,8 +70,15 @@ class MainActivityViewModel : ViewModel() {
                 )
             )
             _shoeDetailIsNull.value = false
+            // reset the values on save to introduce blank edit text fields the next time
+            // the user wants to add new shoe list item
+            shoeName.value = null
+            shoeBrand.value = null
+            shoeSize.value = null
+            shoeDescription.value = null
 
 
+           Log.i("MainActivityViewModel","value of shoeList is ${shoesListLiveData.value}")
         }
     }
 

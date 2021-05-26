@@ -78,7 +78,7 @@ class ShoeDetailsFragment : Fragment() {
                 }
 
             }
-            
+
         })
 
     }
