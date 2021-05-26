@@ -52,7 +52,8 @@
         tools:layout="@layout/fragment_shoelist">
         <action
             android:id="@+id/action_shoeListFragment_to_shoeDetailsFragment"
-            app:destination="@id/shoe_details_destination" />
+            app:destination="@id/shoe_details_destination"
+            app:popUpToInclusive="false" />
 
     </fragment>
     <fragment
@@ -63,6 +64,7 @@
 
         <action
             android:id="@+id/action_shoe_details_destination_to_shoe_list_destination"
-            app:destination="@id/shoe_list_destination" />
+            app:destination="@id/shoe_list_destination"
+            app:popUpTo="@id/login_destination" />
     </fragment>
 </navigation>

@@ -49,7 +49,7 @@ class MainActivityViewModel : ViewModel() {
 
 
     }
-
+   //TODO how to reset data and fire alert box only when text available in the cancel button -  add another if here?
     fun saveDetailData() {
 
         if ((shoeName.value.isNullOrEmpty()) || (shoeBrand.value.isNullOrEmpty())
@@ -78,9 +78,11 @@ class MainActivityViewModel : ViewModel() {
             shoeDescription.value = null
 
 
-           Log.i("MainActivityViewModel","value of shoeList is ${shoesListLiveData.value}")
+            Log.i("MainActivityViewModel", "value of shoeList is ${shoesListLiveData.value}")
         }
     }
-
-
+/** Sets the value of shoeDetailsIsNull to null*/
+fun resetShoeDetailsIsNull(){
+    _shoeDetailIsNull.value = null
+}
 }

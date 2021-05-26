@@ -15,6 +15,7 @@ limitations under the License.
 
 package com.example.android.shoebox
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoeDetailsBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 // This class shows detailed info for each shoe pair,stored in the warehouse
 class ShoeDetailsFragment : Fragment() {
@@ -84,8 +86,31 @@ class ShoeDetailsFragment : Fragment() {
     }
 
     fun onCancelClicked() {
-        navController.navigate(shoeDetailsToShoeListAction)
+        showAlertBox()
+        //  navController.navigate(shoeDetailsToShoeListAction)
     }
+
+    private fun showAlertBox() {
+        val alertDialog = MaterialAlertDialogBuilder(requireContext())
+            .setMessage(resources.getString(R.string.alert_dialog_question))
+
+            .setNegativeButton(resources.getString(R.string.alert_dialog_action_negative)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(resources.getString(R.string.alert_dialog_action_positive)) { _, _ ->
+                navController.navigate(shoeDetailsToShoeListAction)
+            }
+            .create()
+        alertDialog.setOnShowListener {
+            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+                .setTextColor(resources.getColor(R.color.primaryTextColor, null))
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                .setTextColor(resources.getColor(R.color.primaryTextColor, null))
+        }
+
+        alertDialog.show()
+    }
+
 
 }
 

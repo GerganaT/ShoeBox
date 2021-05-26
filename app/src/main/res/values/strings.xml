@@ -43,4 +43,7 @@
     <string name="menu_item_logout_label">Logout</string>
     <string name="menu_item_details_label">View or adjust details</string>
     <string name="shoe_sizes_left_format">Sizes left: %s</string>
+    <string name="alert_dialog_question">Are you sure? Your entries will be lost.</string>
+    <string name="alert_dialog_action_positive">Exit</string>
+    <string name="alert_dialog_action_negative">Keep Editing</string>
 </resources>
