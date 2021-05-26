@@ -73,16 +73,14 @@ class ShoeDetailsFragment : Fragment() {
             } else {
 
                 Toast.makeText(activity, "Shoe entry saved", Toast.LENGTH_SHORT).show()
-              //  navController.navigate(shoeDetailsToShoeListAction) //- not working
+                if (navController.currentDestination?.id == R.id.shoe_details_destination) {
+                    navController.navigate(shoeDetailsToShoeListAction)
+                }
+
             }
-
-
+            
         })
-        // had to set the navigation here as the app kept on crashing if put in the else-clause
-        // of the observer
-        if (viewModel.shoeDetailIsNull.value == false) {
-            findNavController().navigate(shoeDetailsToShoeListAction)
-        }
+
     }
 
     fun onCancelClicked() {
