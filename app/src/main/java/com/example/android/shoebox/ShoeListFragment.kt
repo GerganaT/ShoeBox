@@ -20,11 +20,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoelistBinding
@@ -52,8 +50,7 @@ class ShoeListFragment : Fragment() {
 
         shoeListBinding.shoeListFragment = this
 
-       shoeListBinding.lifecycleOwner = this
-
+        shoeListBinding.lifecycleOwner = this
 
         return shoeListBinding.root
     }
