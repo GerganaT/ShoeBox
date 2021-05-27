@@ -24,7 +24,6 @@ import androidx.lifecycle.ViewModel
 // class that handles the shoe-data-related operations in the app
 class MainActivityViewModel : ViewModel() {
 
-
     val shoeName = MutableLiveData<String>()
 
 
@@ -39,6 +38,10 @@ class MainActivityViewModel : ViewModel() {
     val shoeDetailIsNull: LiveData<Boolean>
         get() = _shoeDetailIsNull
 
+    private val _shoeDetailsIsNotNull = MutableLiveData<Boolean>()
+    val shoeDetailsIsNotNull: LiveData<Boolean>
+        get() = _shoeDetailsIsNotNull
+
     private val _shoesListLiveData = MutableLiveData<MutableList<Shoe>>()
     val shoesListLiveData: LiveData<MutableList<Shoe>>
         get() = _shoesListLiveData
@@ -46,18 +49,15 @@ class MainActivityViewModel : ViewModel() {
 
     init {
         _shoesListLiveData.value = mutableListOf()
-
-
     }
-   //TODO how to reset data and fire alert box only when text available in the cancel button -  add another if here?
-    fun saveDetailData() {
+
+
+    fun saveDetailDataEntry() {
 
         if ((shoeName.value.isNullOrEmpty()) || (shoeBrand.value.isNullOrEmpty())
             || (shoeSize.value.isNullOrEmpty()) || (shoeDescription.value.isNullOrEmpty())
         ) {
             _shoeDetailIsNull.value = true
-            Log.i("MainActivityViewModel", "shoeDetailsIsNull is ${_shoeDetailIsNull.value}")
-
             return
         } else {
 
@@ -70,19 +70,22 @@ class MainActivityViewModel : ViewModel() {
                 )
             )
             _shoeDetailIsNull.value = false
-            // reset the values on save to introduce blank edit text fields the next time
-            // the user wants to add new shoe list item
-            shoeName.value = null
-            shoeBrand.value = null
-            shoeSize.value = null
-            shoeDescription.value = null
-
-
-            Log.i("MainActivityViewModel", "value of shoeList is ${shoesListLiveData.value}")
+            resetEditTextValues()
         }
     }
-/** Sets the value of shoeDetailsIsNull to null*/
-fun resetShoeDetailsIsNull(){
-    _shoeDetailIsNull.value = null
-}
+
+    /** resets the values to introduce blank edit text fields the next time
+    the user wants to add new shoe list item */
+    fun resetEditTextValues() {
+        shoeName.value = null
+        shoeBrand.value = null
+        shoeSize.value = null
+        shoeDescription.value = null
+    }
+
+    fun checkDataEntry() {
+
+        _shoeDetailsIsNotNull.value = (!shoeName.value.isNullOrEmpty()) || (!shoeBrand.value.isNullOrEmpty())
+            || (!shoeSize.value.isNullOrEmpty()) || (!shoeDescription.value.isNullOrEmpty())
+    }
 }

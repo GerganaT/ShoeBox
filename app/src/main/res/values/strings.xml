@@ -46,4 +46,6 @@
     <string name="alert_dialog_question">Are you sure? Your entries will be lost.</string>
     <string name="alert_dialog_action_positive">Exit</string>
     <string name="alert_dialog_action_negative">Keep Editing</string>
+    <string name="toast_enter_details">Please enter all details</string>
+    <string name="toast_details_saved">Shoe entry saved</string>
 </resources>
