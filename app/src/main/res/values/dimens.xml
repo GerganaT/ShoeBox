@@ -22,7 +22,8 @@
     <dimen name="welcome_screen_title_text_weight">1</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="scroll_view_margin">8dp</dimen>
-    <dimen name="shoe_name_text_size">32sp</dimen>
+    <dimen name="shoe_name_text_size">28sp</dimen>
     <dimen name="shoe_info_text_size">20sp</dimen>
     <dimen name="add_shoe_item_fab_icon_size">24dp</dimen>
+    <dimen name="shoe_list_meta_data_text_size">16sp</dimen>
 </resources>
