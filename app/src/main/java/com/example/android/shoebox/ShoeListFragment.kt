@@ -31,6 +31,7 @@ import com.example.android.shoebox.databinding.FragmentShoelistBinding
 class ShoeListFragment : Fragment() {
 
     private lateinit var shoeDetailsAction: NavDirections
+    private lateinit var shoeListBinding: FragmentShoelistBinding
 
 
     override fun onCreateView(
@@ -39,7 +40,7 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val shoeListBinding: FragmentShoelistBinding = DataBindingUtil.inflate(
+        shoeListBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_shoelist, container, false
         )
 
@@ -52,7 +53,19 @@ class ShoeListFragment : Fragment() {
 
         shoeListBinding.lifecycleOwner = this
 
+        observeShoeList(parentActivityViewModel)
+
         return shoeListBinding.root
+    }
+    //TODO fix the logic to add a new object every time - add data first?
+    fun observeShoeList(viewModel: MainActivityViewModel) {
+        val mainActivityViewModel = viewModel.shoesListLiveData
+        val linearLayout = shoeListBinding.inScrollLinearLayout
+        mainActivityViewModel.observe(this, { shoeList ->
+            if (shoeList.isNotEmpty()) {
+                linearLayout.addView(ShoeListItemView(requireContext()))
+            }
+        })
     }
 
     fun onFabClicked() {

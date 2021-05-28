@@ -112,7 +112,7 @@ class ShoeDetailsFragment : Fragment() {
             .setNegativeButton(resources.getString(R.string.alert_dialog_action_negative)) { dialog, _ ->
                 dialog.dismiss()
             }
-            .setPositiveButton(resources.getString(R.string.alert_dialog_action_positive)) { dialog, _ ->
+            .setPositiveButton(resources.getString(R.string.alert_dialog_action_positive)) { _, _ ->
                 viewModel.resetEditTextValues()
                 navigateToShoeList()
             }

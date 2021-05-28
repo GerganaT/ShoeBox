@@ -18,8 +18,8 @@
 
     <data>
         <variable
-            name="shoeListItemData"
-            type="com.example.android.shoebox.ShoeListFragment" />
+            name="viewModel"
+            type="com.example.android.shoebox.MainActivityViewModel " />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +34,8 @@
             android:textSize="@dimen/shoe_info_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text"
-            tools:text="Sizes : 36,37" />
+            tools:text="Sizes : 36,37"
+            android:text="36,37"/>
 
         <TextView
             android:id="@+id/shoe_name_label_text"
@@ -43,7 +44,8 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Ballerinas" />
+            tools:text="Ballerinas"
+            android:text="Ballerinas"/>
 
         <TextView
             android:id="@+id/shoe_brand_text"
@@ -51,7 +53,8 @@
             android:textSize="@dimen/shoe_list_meta_data_text_size"
             app:layout_constraintBaseline_toBaselineOf="@+id/shoe_name_label_text"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Fancy Brand" />
+            tools:text="Fancy Brand"
+            android:text="Fancy Brand"/>
 
         <TextView
             android:id="@+id/shoe_description_text"
@@ -59,7 +62,8 @@
             android:textSize="@dimen/shoe_info_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_size_info_text"
-            tools:text="Some pretty awesome description,which I believe might go to the next line and look really ugly" />
+            tools:text="Some pretty awesome description,which I believe might go to the next line and look really ugly"
+            android:text="Some pretty awesome description,which I believe might go to the next line and look really ugly"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

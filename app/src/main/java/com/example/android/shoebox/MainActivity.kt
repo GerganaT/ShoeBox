@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //TODO put some method call here depending on option selected
+        //TODO put some method call here depending on option selected /just navigation/
         return super.onOptionsItemSelected(item)
     }
 }
