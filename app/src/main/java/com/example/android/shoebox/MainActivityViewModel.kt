@@ -34,6 +34,18 @@ class MainActivityViewModel : ViewModel() {
 
     val shoeDescription = MutableLiveData<String>()
 
+    // should these remain Mutable????????
+
+    val shoeListItemName = MutableLiveData<String>()
+
+
+    val shoeListItemBrand = MutableLiveData<String>()
+
+    val shoeListItemSize = MutableLiveData<String>()
+
+
+    val shoeListItemDescription = MutableLiveData<String>()
+
     private val _shoeDetailIsNull = MutableLiveData<Boolean>()
     val shoeDetailIsNull: LiveData<Boolean>
         get() = _shoeDetailIsNull
@@ -51,7 +63,8 @@ class MainActivityViewModel : ViewModel() {
         _shoesListLiveData.value = mutableListOf()
     }
 
-
+    /** Checks whether the user entered anything in the EditText fields in the shoe details
+     * destination and saves the entry if the text is not null or an empty string*/
     fun saveDetailDataEntry() {
 
         if ((shoeName.value.isNullOrEmpty()) || (shoeBrand.value.isNullOrEmpty())
@@ -69,23 +82,48 @@ class MainActivityViewModel : ViewModel() {
                     shoeDescription.value
                 )
             )
+            Log.i("MainActivityViewModel", "list is ${_shoesListLiveData.value}")
             _shoeDetailIsNull.value = false
-            resetEditTextValues()
+            resetShoeDataFields()
+            Log.i(
+                "MainActivityViewModel", "${shoeName.value} , ${shoeBrand.value}," +
+                        "${shoeSize.value},${shoeDescription.value}"
+            )
         }
+
     }
 
-    /** resets the values to introduce blank edit text fields the next time
+    /** Resets the values to introduce blank edit text fields the next time
     the user wants to add new shoe list item */
-    fun resetEditTextValues() {
+    fun resetShoeDataFields() {
         shoeName.value = null
         shoeBrand.value = null
         shoeSize.value = null
         shoeDescription.value = null
     }
 
+    /** Checks whether the user entered anything in the EditText fields, before exiting
+     * the shoe details destination*/
     fun checkDataEntry() {
 
-        _shoeDetailsIsNotNull.value = (!shoeName.value.isNullOrEmpty()) || (!shoeBrand.value.isNullOrEmpty())
-            || (!shoeSize.value.isNullOrEmpty()) || (!shoeDescription.value.isNullOrEmpty())
+        _shoeDetailsIsNotNull.value =
+            (!shoeName.value.isNullOrEmpty()) || (!shoeBrand.value.isNullOrEmpty())
+                    || (!shoeSize.value.isNullOrEmpty()) || (!shoeDescription.value.isNullOrEmpty())
+    }
+
+    /** Populates the shoe list item fields with data if anything was added to the shoeList*/
+    fun updateShoeDataFields() {
+        if (_shoesListLiveData.value?.isNotEmpty() == true) {
+            shoeListItemName.value = _shoesListLiveData.value?.last()?.shoeName.toString()
+            shoeListItemSize.value = _shoesListLiveData.value?.last()?.shoeSize.toString()
+            shoeListItemBrand.value = _shoesListLiveData.value?.last()?.shoeBrand.toString()
+            shoeListItemDescription.value =
+                _shoesListLiveData.value?.last()?.shoeDescription.toString()
+            Log.i(
+                "MainActivityViewModel", "${shoeListItemName.value} , ${shoeListItemSize.value}," +
+                        "${shoeListItemBrand.value},${shoeListItemDescription.value}"
+            )
+
+        }
     }
 }

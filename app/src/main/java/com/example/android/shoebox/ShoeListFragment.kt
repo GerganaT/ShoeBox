@@ -16,23 +16,26 @@ limitations under the License.
 
 package com.example.android.shoebox
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoelistBinding
+import com.example.android.shoebox.databinding.ShoeListItemBinding
 
 // This class inflates the list of shoes in the shoe inventory
 class ShoeListFragment : Fragment() {
 
     private lateinit var shoeDetailsAction: NavDirections
     private lateinit var shoeListBinding: FragmentShoelistBinding
-
+    lateinit var viewModel: MainActivityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +48,7 @@ class ShoeListFragment : Fragment() {
         )
 
         val parentActivityViewModel: MainActivityViewModel by activityViewModels()
+        viewModel = parentActivityViewModel
 
         shoeDetailsAction =
             ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment()
@@ -53,23 +57,40 @@ class ShoeListFragment : Fragment() {
 
         shoeListBinding.lifecycleOwner = this
 
-        observeShoeList(parentActivityViewModel)
+        observeShoeList()
 
         return shoeListBinding.root
     }
-    //TODO fix the logic to add a new object every time - add data first?
-    fun observeShoeList(viewModel: MainActivityViewModel) {
-        val mainActivityViewModel = viewModel.shoesListLiveData
+
+    //TODO this method does not display data on the list although the variables contain value
+    private fun observeShoeList() {
+        val shoesList = viewModel.shoesListLiveData
         val linearLayout = shoeListBinding.inScrollLinearLayout
-        mainActivityViewModel.observe(this, { shoeList ->
-            if (shoeList.isNotEmpty()) {
-                linearLayout.addView(ShoeListItemView(requireContext()))
-            }
+        shoesList.observe(this, {
+            viewModel.updateShoeDataFields()
+            val shoeListItemView = ShoeListItemView(requireContext())
+            shoeListItemView.shoeListItemBinding.viewModel = viewModel
+                linearLayout.addView(shoeListItemView)
+
+
         })
     }
 
     fun onFabClicked() {
         findNavController().navigate(shoeDetailsAction)
+    }
+
+    inner class ShoeListItemView(context: Context) : ConstraintLayout(context) {
+        val shoeListItemBinding = ShoeListItemBinding.inflate(LayoutInflater.from(context))
+
+
+        init {
+            inflate(context, R.layout.shoe_list_item, this)
+
+
+        }
+
+
     }
 
 }
