@@ -72,7 +72,7 @@ class ShoeDetailsFragment : Fragment() {
     fun onSaveClicked() {
 
         viewModel.saveDetailDataEntry()
-        viewModel.shoeDetailIsNull.observe(this, { shoeDetailsIsNull ->
+        viewModel.shoeDetailIsNullOrEmpty.observe(this, { shoeDetailsIsNull ->
 
             if (shoeDetailsIsNull) {
                 Toast.makeText(

@@ -57,21 +57,23 @@ class ShoeListFragment : Fragment() {
 
         shoeListBinding.lifecycleOwner = this
 
-        observeShoeList()
+        observeShoeList(inflater, container)
 
         return shoeListBinding.root
     }
 
-    //TODO this method does not display data on the list although the variables contain value
-    private fun observeShoeList() {
+    private fun observeShoeList(inflater: LayoutInflater, container: ViewGroup?) {
         val shoesList = viewModel.shoesListLiveData
         val linearLayout = shoeListBinding.inScrollLinearLayout
-        shoesList.observe(this, {
+        shoesList.observe(this, { shoe ->
             viewModel.updateShoeDataFields()
-            val shoeListItemView = ShoeListItemView(requireContext())
-            shoeListItemView.shoeListItemBinding.viewModel = viewModel
-                linearLayout.addView(shoeListItemView)
+            shoe.forEach {
 
+                val shoeListItem = ShoeListItem(inflater, container, requireContext())
+                val shoeListItemRootView = shoeListItem.shoeListItemBinding.root
+                shoeListItem.shoeListItemBinding.shoe = it
+                linearLayout.addView(shoeListItemRootView)
+            }
 
         })
     }
@@ -80,15 +82,13 @@ class ShoeListFragment : Fragment() {
         findNavController().navigate(shoeDetailsAction)
     }
 
-    inner class ShoeListItemView(context: Context) : ConstraintLayout(context) {
-        val shoeListItemBinding = ShoeListItemBinding.inflate(LayoutInflater.from(context))
+    inner class ShoeListItem(
+        inflater: LayoutInflater, container: ViewGroup?,
+        context: Context
+    ) : ConstraintLayout(context) {
 
-
-        init {
-            inflate(context, R.layout.shoe_list_item, this)
-
-
-        }
+        val shoeListItemBinding: ShoeListItemBinding =
+            DataBindingUtil.inflate(inflater, R.layout.shoe_list_item, container, false)
 
 
     }

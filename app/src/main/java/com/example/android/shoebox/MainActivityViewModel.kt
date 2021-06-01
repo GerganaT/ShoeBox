@@ -46,9 +46,9 @@ class MainActivityViewModel : ViewModel() {
 
     val shoeListItemDescription = MutableLiveData<String>()
 
-    private val _shoeDetailIsNull = MutableLiveData<Boolean>()
-    val shoeDetailIsNull: LiveData<Boolean>
-        get() = _shoeDetailIsNull
+    private val _shoeDetailIsNullOrEmpty = MutableLiveData<Boolean>()
+    val shoeDetailIsNullOrEmpty: LiveData<Boolean>
+        get() = _shoeDetailIsNullOrEmpty
 
     private val _shoeDetailsIsNotNull = MutableLiveData<Boolean>()
     val shoeDetailsIsNotNull: LiveData<Boolean>
@@ -59,8 +59,10 @@ class MainActivityViewModel : ViewModel() {
         get() = _shoesListLiveData
 
 
+
     init {
         _shoesListLiveData.value = mutableListOf()
+
     }
 
     /** Checks whether the user entered anything in the EditText fields in the shoe details
@@ -70,7 +72,7 @@ class MainActivityViewModel : ViewModel() {
         if ((shoeName.value.isNullOrEmpty()) || (shoeBrand.value.isNullOrEmpty())
             || (shoeSize.value.isNullOrEmpty()) || (shoeDescription.value.isNullOrEmpty())
         ) {
-            _shoeDetailIsNull.value = true
+            _shoeDetailIsNullOrEmpty.value = true
             return
         } else {
 
@@ -83,7 +85,7 @@ class MainActivityViewModel : ViewModel() {
                 )
             )
             Log.i("MainActivityViewModel", "list is ${_shoesListLiveData.value}")
-            _shoeDetailIsNull.value = false
+            _shoeDetailIsNullOrEmpty.value = false
             resetShoeDataFields()
             Log.i(
                 "MainActivityViewModel", "${shoeName.value} , ${shoeBrand.value}," +
@@ -114,11 +116,14 @@ class MainActivityViewModel : ViewModel() {
     /** Populates the shoe list item fields with data if anything was added to the shoeList*/
     fun updateShoeDataFields() {
         if (_shoesListLiveData.value?.isNotEmpty() == true) {
-            shoeListItemName.value = _shoesListLiveData.value?.last()?.shoeName.toString()
-            shoeListItemSize.value = _shoesListLiveData.value?.last()?.shoeSize.toString()
-            shoeListItemBrand.value = _shoesListLiveData.value?.last()?.shoeBrand.toString()
-            shoeListItemDescription.value =
-                _shoesListLiveData.value?.last()?.shoeDescription.toString()
+            _shoesListLiveData.value?.forEach {
+                shoeListItemName.value = it.shoeName
+                shoeListItemSize.value = it.shoeSize
+                shoeListItemBrand.value = it.shoeBrand
+                shoeListItemDescription.value = it.shoeDescription
+
+            }
+
             Log.i(
                 "MainActivityViewModel", "${shoeListItemName.value} , ${shoeListItemSize.value}," +
                         "${shoeListItemBrand.value},${shoeListItemDescription.value}"

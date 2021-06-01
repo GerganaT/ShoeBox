@@ -18,12 +18,12 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.example.android.shoebox.MainActivityViewModel" />
+            name="shoe"
+            type="com.example.android.shoebox.Shoe" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
+        android:id="@+id/list_item_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_default">
@@ -34,7 +34,7 @@
             android:textSize="@dimen/shoe_info_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text"
-            android:text="@{viewModel.shoeListItemSize}"/>
+            android:text="@{shoe.shoeSize}"/>
 
         <TextView
             android:id="@+id/shoe_name_label_text"
@@ -43,7 +43,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@{viewModel.shoeListItemName}"/>
+            android:text="@{shoe.shoeName}"/>
 
         <TextView
             android:id="@+id/shoe_brand_text"
@@ -51,7 +51,7 @@
             android:textSize="@dimen/shoe_list_meta_data_text_size"
             app:layout_constraintBaseline_toBaselineOf="@+id/shoe_name_label_text"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@{viewModel.shoeListItemBrand}"/>
+            android:text="@{shoe.shoeBrand}"/>
 
         <TextView
             android:id="@+id/shoe_description_text"
@@ -59,7 +59,7 @@
             android:textSize="@dimen/shoe_info_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_size_info_text"
-            android:text="@{viewModel.shoeListItemDescription}"/>
+            android:text="@{shoe.shoeDescription}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
