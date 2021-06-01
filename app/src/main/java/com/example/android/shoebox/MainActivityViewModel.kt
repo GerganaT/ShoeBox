@@ -113,22 +113,22 @@ class MainActivityViewModel : ViewModel() {
                     || (!shoeSize.value.isNullOrEmpty()) || (!shoeDescription.value.isNullOrEmpty())
     }
 
-    /** Populates the shoe list item fields with data if anything was added to the shoeList*/
-    fun updateShoeDataFields() {
-        if (_shoesListLiveData.value?.isNotEmpty() == true) {
-            _shoesListLiveData.value?.forEach {
-                shoeListItemName.value = it.shoeName
-                shoeListItemSize.value = it.shoeSize
-                shoeListItemBrand.value = it.shoeBrand
-                shoeListItemDescription.value = it.shoeDescription
-
-            }
-
-            Log.i(
-                "MainActivityViewModel", "${shoeListItemName.value} , ${shoeListItemSize.value}," +
-                        "${shoeListItemBrand.value},${shoeListItemDescription.value}"
-            )
-
-        }
-    }
+//    /** Populates the shoe list item fields with data if anything was added to the shoeList*/
+//    fun updateShoeDataFields() {
+//        if (_shoesListLiveData.value?.isNotEmpty() == true) {
+//            _shoesListLiveData.value?.forEach {
+//                shoeListItemName.value = it.shoeName
+//                shoeListItemSize.value = it.shoeSize
+//                shoeListItemBrand.value = it.shoeBrand
+//                shoeListItemDescription.value = it.shoeDescription
+//
+//            }
+//
+//            Log.i(
+//                "MainActivityViewModel", "${shoeListItemName.value} , ${shoeListItemSize.value}," +
+//                        "${shoeListItemBrand.value},${shoeListItemDescription.value}"
+//            )
+//
+//        }
+//    }
 }

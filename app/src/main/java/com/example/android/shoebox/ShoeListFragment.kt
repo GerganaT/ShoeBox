@@ -65,13 +65,12 @@ class ShoeListFragment : Fragment() {
     private fun observeShoeList(inflater: LayoutInflater, container: ViewGroup?) {
         val shoesList = viewModel.shoesListLiveData
         val linearLayout = shoeListBinding.inScrollLinearLayout
-        shoesList.observe(this, { shoe ->
-            viewModel.updateShoeDataFields()
-            shoe.forEach {
-
+        shoesList.observe(this, { shoeList ->
+         //   viewModel.updateShoeDataFields()
+            shoeList.forEach { shoe ->
                 val shoeListItem = ShoeListItem(inflater, container, requireContext())
                 val shoeListItemRootView = shoeListItem.shoeListItemBinding.root
-                shoeListItem.shoeListItemBinding.shoe = it
+                shoeListItem.shoeListItemBinding.shoe = shoe
                 linearLayout.addView(shoeListItemRootView)
             }
 
