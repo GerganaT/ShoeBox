@@ -58,6 +58,8 @@ class ShoeListFragment : Fragment() {
         shoeListBinding.lifecycleOwner = this
 
         observeShoeList(inflater, container)
+        // show the logout menu only in this fragment as per requirements
+        setHasOptionsMenu(true)
 
         return shoeListBinding.root
     }

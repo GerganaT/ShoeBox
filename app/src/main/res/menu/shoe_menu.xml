@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -12,11 +11,13 @@
 <!--    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
 
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_item_logout"
         android:title="@string/menu_item_logout_label"
+        android:visible="false"
         app:showAsAction="collapseActionView" />
 </menu>
+

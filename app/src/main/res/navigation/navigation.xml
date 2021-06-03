@@ -54,6 +54,10 @@
             android:id="@+id/action_shoeListFragment_to_shoeDetailsFragment"
             app:destination="@id/shoe_details_destination"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_shoe_list_destination_to_login_destination"
+            app:destination="@id/login_destination"
+            app:popUpTo="@id/login_destination" />
 
     </fragment>
     <fragment

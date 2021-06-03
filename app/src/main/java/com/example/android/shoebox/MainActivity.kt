@@ -21,13 +21,14 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.shoebox.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-
+    lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,19 +37,25 @@ class MainActivity : AppCompatActivity() {
         )
 
         //  display custom label for each fragment in the app bar
-        val navController = findNavController(R.id.host_fragment)
+        navController = findNavController(R.id.host_fragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
 
     }
 
-    //TODO see answer from mentor/todayz folder and continue
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.shoe_menu, menu)
+        val currentDestinationId = navController.currentDestination?.id
+        if (currentDestinationId == R.id.shoe_list_destination) {
+            menu?.findItem(R.id.menu_item_logout)?.isVisible = true
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //TODO put some method call here depending on option selected /just navigation/
+        val loginDestination = ShoeListFragmentDirections
+            .actionShoeListDestinationToLoginDestination()
+        navController.navigate(loginDestination)
+
         return super.onOptionsItemSelected(item)
     }
 }
