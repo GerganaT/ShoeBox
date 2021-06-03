@@ -35,7 +35,8 @@
             android:layout_marginBottom="@dimen/scroll_view_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            >
 
             <LinearLayout
                 android:id="@+id/in_scroll_linear_layout"
