@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/login_destination"
         android:name="com.example.android.shoebox.LoginFragment"
-        android:label="LoginFragment"
+        android:label="@string/login_fragment_label"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/welcome_destination"
         android:name="com.example.android.shoebox.WelcomeFragment"
-        android:label="fragment_welcome"
+        android:label="@string/welcome_fragment_label"
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_instructionsFragment"
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/instructions_destination"
         android:name="com.example.android.shoebox.InstructionsFragment"
-        android:label="fragment_instructions"
+        android:label="@string/instructions_fragment_label"
         tools:layout="@layout/fragment_instructions">
         <action
             android:id="@+id/action_instructionsFragment_to_shoeListFragment"
@@ -48,7 +48,7 @@
     <fragment
         android:id="@+id/shoe_list_destination"
         android:name="com.example.android.shoebox.ShoeListFragment"
-        android:label="fragment_shoelist"
+        android:label="@string/shoe_list_fragment_label"
         tools:layout="@layout/fragment_shoelist">
         <action
             android:id="@+id/action_shoeListFragment_to_shoeDetailsFragment"
@@ -63,7 +63,7 @@
     <fragment
         android:id="@+id/shoe_details_destination"
         android:name="com.example.android.shoebox.ShoeDetailsFragment"
-        android:label="fragment_shoe_details"
+        android:label="@string/shoe_details_fragment_label"
         tools:layout="@layout/fragment_shoe_details">
 
         <action

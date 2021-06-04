@@ -37,8 +37,6 @@ class MainActivity : AppCompatActivity() {
             this, R.layout.activity_main
         )
 
-        //TODO add data entry validation on login
-
         // hide the up arrow in some destinations, where it doesn't make sense to be present
         val appBarConfiguration = AppBarConfiguration
             .Builder(
@@ -62,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onCreateOptionsMenu(menu)
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){

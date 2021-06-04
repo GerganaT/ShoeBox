@@ -15,7 +15,7 @@
 <resources>
     <string name="app_name">ShoeBox</string>
     <string name="email_label">E-mail:</string>
-    <string name="login_fragment_label">Login</string>
+    <string name="login_fragment_label">Login or register</string>
     <string name="email_edit_hint">Your e-mail here</string>
     <string name="password_label">Password:</string>
     <string name="password_edit_hint">Your password here</string>
@@ -25,7 +25,7 @@
     <string name="welcome_screen_greeting">Welcome to Shoe Box</string>
     <string name="welcome_screen_subtitle">One box - many shoes</string>
     <string name="welcome_screen_button_label">Go to instructions</string>
-    <string name="welcome_fragment_label">Shoe Box</string>
+    <string name="welcome_fragment_label">Welcome!</string>
     <string name="instructions_label">Instructions</string>
     <string name="instructions_text">Lorem ipsum dolor sit amet, consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -48,4 +48,7 @@
     <string name="alert_dialog_action_negative">Keep Editing</string>
     <string name="toast_enter_details">Please enter all details</string>
     <string name="toast_details_saved">Shoe entry saved</string>
+    <string name="instructions_fragment_label">Instructions</string>
+    <string name="shoe_list_fragment_label">Inventory</string>
+    <string name="shoe_details_fragment_label">Add new item</string>
 </resources>
