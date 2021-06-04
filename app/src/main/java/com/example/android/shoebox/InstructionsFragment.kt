@@ -22,31 +22,39 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentInstructionsBinding
 
 //This class inflates the fragment,which contains the usage instructions
 class InstructionsFragment : Fragment() {
-
-    lateinit var shoeListAction:NavDirections
+    lateinit var navController: NavController
+    lateinit var shoeListAction: NavDirections
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        val instructionsBinding:FragmentInstructionsBinding = DataBindingUtil.inflate(
-          inflater,R.layout.fragment_instructions,container,false)
+        val instructionsBinding: FragmentInstructionsBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_instructions, container, false
+        )
 
-         shoeListAction = InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment()
+        navController = findNavController()
+        shoeListAction =
+            InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment()
 
         instructionsBinding.instructionsFragment = this
         // Inflate the layout for this fragment
         return instructionsBinding.root
     }
 
-    fun onInventoryButtonClicked(){
-        findNavController().navigate(shoeListAction)
+    fun onInventoryButtonClicked() {
+        val currentDestinationId = navController.currentDestination?.id
+        if (currentDestinationId == R.id.instructions_destination) {
+            navController.navigate(shoeListAction)
+        }
     }
+
 }

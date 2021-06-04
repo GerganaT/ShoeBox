@@ -23,6 +23,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentWelcomeBinding
@@ -30,24 +31,35 @@ import com.example.android.shoebox.databinding.FragmentWelcomeBinding
 // This class contains the welcome screen logic
 class WelcomeFragment : Fragment() {
 
-    lateinit var instuctionsFragmentAction:NavDirections
+    private lateinit var instructionsFragmentAction: NavDirections
+    private lateinit var navController: NavController
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        navController = findNavController()
         val welcomeBinding: FragmentWelcomeBinding = DataBindingUtil.inflate(
-            inflater,R.layout.fragment_welcome,container,false)
+            inflater, R.layout.fragment_welcome, container, false
+        )
 
-         instuctionsFragmentAction = WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment()
+        instructionsFragmentAction =
+            WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment()
 
-         welcomeBinding.welcomeFragment = this
+
+
+        welcomeBinding.welcomeFragment = this
         // Inflate the layout for this fragment
         return welcomeBinding.root
     }
 
-    fun onInstructionsButtonClicked(){
-        findNavController().navigate(instuctionsFragmentAction)
+    fun onInstructionsButtonClicked() {
+        val currentDestinationId = navController.currentDestination?.id
+        if (currentDestinationId == R.id.welcome_destination) {
+            navController.navigate(instructionsFragmentAction)
+        }
+
     }
+
 
 }

@@ -126,10 +126,14 @@ class ShoeDetailsFragment : Fragment() {
     }
 
     private fun navigateToShoeList() {
-        if (navController.currentDestination?.id == R.id.shoe_details_destination) {
+        val currentDestinationId = navController.currentDestination?.id
+        if (currentDestinationId == R.id.shoe_details_destination) {
             navController.navigate(shoeDetailsToShoeListAction)
         }
+
     }
+
+
 }
 
 

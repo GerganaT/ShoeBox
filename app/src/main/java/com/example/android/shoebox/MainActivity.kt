@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.android.shoebox.databinding.ActivityMainBinding
 
@@ -36,9 +37,20 @@ class MainActivity : AppCompatActivity() {
             this, R.layout.activity_main
         )
 
-        //  display custom label for each fragment in the app bar
+        //TODO add data entry validation on login
+
+        // hide the up arrow in some destinations, where it doesn't make sense to be present
+        val appBarConfiguration = AppBarConfiguration
+            .Builder(
+                R.id.login_destination,
+                R.id.shoe_details_destination,
+                R.id.shoe_list_destination
+            )
+            .build()
+
         navController = findNavController(R.id.host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, navController)
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+
 
     }
 
@@ -52,10 +64,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val loginDestination = ShoeListFragmentDirections
-            .actionShoeListDestinationToLoginDestination()
-        navController.navigate(loginDestination)
-
+        when(item.itemId){
+            R.id.menu_item_logout -> {
+                val loginDestination = ShoeListFragmentDirections
+                .actionShoeListDestinationToLoginDestination()
+            navController.navigate(loginDestination)
+            }
+            // ensure proper backstack navigation via the up arrow button by adopting the same
+            //behaviour as the back-button
+            // idea taken from here :
+            //https://stackoverflow.com/questions/28438030/
+            // how-to-make-back-icon-to-behave-same-as-physical-back-button-in-android
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
         return super.onOptionsItemSelected(item)
     }
 }

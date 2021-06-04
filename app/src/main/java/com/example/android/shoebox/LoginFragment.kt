@@ -20,6 +20,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.android.shoebox.databinding.FragmentLoginBinding
@@ -28,7 +29,7 @@ import com.example.android.shoebox.databinding.FragmentLoginBinding
 // LoginFragment is class, used to capture the user's login data.
 
 open class LoginFragment : Fragment() {
-
+    private lateinit var navController: NavController
     private lateinit var welcomeFragmentAction: NavDirections
 
     override fun onCreateView(
@@ -41,6 +42,7 @@ open class LoginFragment : Fragment() {
             inflater, R.layout.fragment_login, container, false
         )
 
+        navController = findNavController(this)
         welcomeFragmentAction =
             LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
         // Inflate the layout for this fragment
@@ -51,9 +53,10 @@ open class LoginFragment : Fragment() {
     }
 
     fun onLoginOrRegisterButtonClicked() {
+        val currentDestinationId = navController.currentDestination?.id
+        if (currentDestinationId == R.id.login_destination){
+            navController.navigate(welcomeFragmentAction)
+        }
 
-        findNavController(this).navigate(welcomeFragmentAction)
     }
-
-
 }

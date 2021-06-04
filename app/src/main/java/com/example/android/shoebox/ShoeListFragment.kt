@@ -18,6 +18,7 @@ package com.example.android.shoebox
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoelistBinding
@@ -33,6 +35,7 @@ import com.example.android.shoebox.databinding.ShoeListItemBinding
 // This class inflates the list of shoes in the shoe inventory
 class ShoeListFragment : Fragment() {
 
+    private lateinit var navController: NavController
     private lateinit var shoeDetailsAction: NavDirections
     private lateinit var shoeListBinding: FragmentShoelistBinding
     lateinit var viewModel: MainActivityViewModel
@@ -57,6 +60,8 @@ class ShoeListFragment : Fragment() {
 
         shoeListBinding.lifecycleOwner = this
 
+        navController = findNavController()
+
         observeShoeList(inflater, container)
         // show the logout menu only in this fragment as per requirements
         setHasOptionsMenu(true)
@@ -80,8 +85,14 @@ class ShoeListFragment : Fragment() {
     }
 
     fun onFabClicked() {
-        findNavController().navigate(shoeDetailsAction)
+        val currentDestinationId = navController.currentDestination?.id
+        if (currentDestinationId == R.id.shoe_list_destination){
+            navController.navigate(shoeDetailsAction)
+        }
+
     }
+
+
 
     inner class ShoeListItem(
         inflater: LayoutInflater, container: ViewGroup?,
