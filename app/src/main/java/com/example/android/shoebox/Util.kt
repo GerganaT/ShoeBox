@@ -56,34 +56,7 @@ fun Fragment.setupAlertDialog(
     return alertDialog
 }
 
-@SuppressLint("NewApi")
-fun AppCompatActivity.setupAlertDialog(
-    viewModel: MainActivityViewModel,
-    navController: NavController,
-    action: NavDirections,
-    targetDestinationId: Int
-): AlertDialog {
 
-    val alertDialog = MaterialAlertDialogBuilder(this)
-        .setMessage(resources.getString(R.string.alert_dialog_question))
-
-        .setNegativeButton(resources.getString(R.string.alert_dialog_action_negative)) { dialog, _ ->
-            dialog.dismiss()
-        }
-        .setPositiveButton(resources.getString(R.string.alert_dialog_action_positive)) { _, _ ->
-            viewModel.resetShoeDataFields()
-            navigateToDestination(navController, action, targetDestinationId)
-        }
-        .create()
-    alertDialog.setOnShowListener {
-        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-            .setTextColor(resources.getColor(R.color.primaryTextColor, null))
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
-            .setTextColor(resources.getColor(R.color.primaryTextColor, null))
-    }
-
-    return alertDialog
-}
 // navigation methods
 
 fun Fragment.navigateToDestination(
@@ -98,14 +71,21 @@ fun Fragment.navigateToDestination(
 
 }
 
-fun AppCompatActivity.navigateToDestination(
-    navController: NavController,
-    action: NavDirections,
-    targetDestinationId: Int
-) {
+fun Fragment.validateUserInput(navController: NavController,viewModel: MainActivityViewModel,
+alertDialog: AlertDialog, action: NavDirections){
     val currentDestinationId = navController.currentDestination?.id
-    if (currentDestinationId == targetDestinationId) {
-        navController.navigate(action)
-    }
+    if (currentDestinationId == R.id.shoe_details_destination){
+        viewModel.checkDataEntry()
+        viewModel.shoeDetailsIsNotNull.observe(this, { shoeDetailsIsNotNull ->
 
+            if (shoeDetailsIsNotNull) {
+                alertDialog.show()
+            } else {
+                navigateToDestination(
+                    navController, action,
+                    R.id.shoe_details_destination
+                )
+            }
+        })
+    }
 }

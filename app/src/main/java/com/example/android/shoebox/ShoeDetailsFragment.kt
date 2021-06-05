@@ -100,47 +100,32 @@ class ShoeDetailsFragment : Fragment() {
     }
 
     fun onCancelClicked() {
-        viewModel.checkDataEntry()
-        viewModel.shoeDetailsIsNotNull.observe(this, { shoeDetailsIsNotNull ->
-
-            if (shoeDetailsIsNotNull) {
-                alertDialog.show()
-            } else {
-                navigateToDestination(
-                    navController, shoeDetailsToShoeListAction,
-                    R.id.shoe_details_destination
-                )
-            }
-        })
+        validateUserInput(
+            navController,
+            viewModel,
+            alertDialog,
+            shoeDetailsToShoeListAction)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        val callback = object :OnBackPressedCallback(true){
+        val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val currentDestinationId = navController.currentDestination?.id
-                if (currentDestinationId == R.id.shoe_details_destination){
-                    viewModel.checkDataEntry()
-                    viewModel.shoeDetailsIsNotNull.observe(this@ShoeDetailsFragment, { shoeDetailsIsNotNull ->
-
-                        if (shoeDetailsIsNotNull) {
-                            alertDialog.show()
-                        } else {
-                            navigateToDestination(
-                                navController, shoeDetailsToShoeListAction,
-                                R.id.shoe_details_destination
-                            )
-                        }
-                    })
-                }
+                validateUserInput(
+                    navController,
+                    viewModel,
+                    alertDialog,
+                    shoeDetailsToShoeListAction
+                )
             }
 
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(
             this,
-            callback)
+            callback
+        )
     }
 }
 
