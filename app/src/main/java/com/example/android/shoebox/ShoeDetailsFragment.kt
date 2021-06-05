@@ -15,11 +15,13 @@ limitations under the License.
 
 package com.example.android.shoebox
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -112,6 +114,34 @@ class ShoeDetailsFragment : Fragment() {
         })
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        val callback = object :OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                val currentDestinationId = navController.currentDestination?.id
+                if (currentDestinationId == R.id.shoe_details_destination){
+                    viewModel.checkDataEntry()
+                    viewModel.shoeDetailsIsNotNull.observe(this@ShoeDetailsFragment, { shoeDetailsIsNotNull ->
+
+                        if (shoeDetailsIsNotNull) {
+                            alertDialog.show()
+                        } else {
+                            navigateToDestination(
+                                navController, shoeDetailsToShoeListAction,
+                                R.id.shoe_details_destination
+                            )
+                        }
+                    })
+                }
+            }
+
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback)
+    }
 }
 
 

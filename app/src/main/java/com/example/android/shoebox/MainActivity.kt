@@ -29,6 +29,7 @@ import com.example.android.shoebox.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+
     lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,20 +49,10 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.host_fragment)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
-
-
-    }
-
-    override fun onBackPressed() {
-        val currentDestinationId = navController.currentDestination?.id
-        if (currentDestinationId == R.id.shoe_list_destination) {
-          //TODO show alert box
-        }
-        super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.shoe_menu, menu)
+        menuInflater.inflate(R.menu.logout_menu, menu)
         val currentDestinationId = navController.currentDestination?.id
         if (currentDestinationId == R.id.shoe_list_destination) {
             menu?.findItem(R.id.menu_item_logout)?.isVisible = true
@@ -71,11 +62,11 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.menu_item_logout -> {
                 val loginDestination = ShoeListFragmentDirections
-                .actionShoeListDestinationToLoginDestination()
-            navController.navigate(loginDestination)
+                    .actionShoeListDestinationToLoginDestination()
+                navController.navigate(loginDestination)
             }
             // ensure proper backstack navigation via the up arrow button by adopting the same
             //behaviour as the back-button
