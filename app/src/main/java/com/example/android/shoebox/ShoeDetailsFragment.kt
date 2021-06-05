@@ -106,7 +106,8 @@ class ShoeDetailsFragment : Fragment() {
             alertDialog,
             shoeDetailsToShoeListAction)
     }
-
+    // show AlertDialog whenever the user attempts to navigate back
+    // from the ShoeDetails destination but has some data entered in the EditText fields
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
