@@ -45,18 +45,12 @@ open class LoginFragment : Fragment() {
         navController = findNavController(this)
         welcomeFragmentAction =
             LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
-        // Inflate the layout for this fragment
-
         loginBinding.loginFragment = this
 
         return loginBinding.root
     }
 
     fun onLoginOrRegisterButtonClicked() {
-        val currentDestinationId = navController.currentDestination?.id
-        if (currentDestinationId == R.id.login_destination){
-            navController.navigate(welcomeFragmentAction)
-        }
-
+        navigateToDestination(navController, welcomeFragmentAction, R.id.login_destination)
     }
 }

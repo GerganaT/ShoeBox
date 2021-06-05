@@ -18,8 +18,13 @@ limitations under the License.
 
 package com.example.android.shoebox
 
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+
 // class to store the data for every shoe pair
-data class Shoe(
+data class Shoe (
     val shoeName: String?, val shoeBrand: String?, val shoeSize: String?,
     val shoeDescription: String?,
 )
+
+

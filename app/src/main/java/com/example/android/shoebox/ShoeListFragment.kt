@@ -18,7 +18,6 @@ package com.example.android.shoebox
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -73,7 +72,7 @@ class ShoeListFragment : Fragment() {
         val shoesList = viewModel.shoesListLiveData
         val linearLayout = shoeListBinding.inScrollLinearLayout
         shoesList.observe(this, { shoeList ->
-         //   viewModel.updateShoeDataFields()
+            //   viewModel.updateShoeDataFields()
             shoeList.forEach { shoe ->
                 val shoeListItem = ShoeListItem(inflater, container, requireContext())
                 val shoeListItemRootView = shoeListItem.shoeListItemBinding.root
@@ -85,13 +84,8 @@ class ShoeListFragment : Fragment() {
     }
 
     fun onFabClicked() {
-        val currentDestinationId = navController.currentDestination?.id
-        if (currentDestinationId == R.id.shoe_list_destination){
-            navController.navigate(shoeDetailsAction)
-        }
-
+        navigateToDestination(navController, shoeDetailsAction, R.id.shoe_list_destination)
     }
-
 
 
     inner class ShoeListItem(

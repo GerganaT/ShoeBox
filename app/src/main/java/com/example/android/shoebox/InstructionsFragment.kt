@@ -51,10 +51,6 @@ class InstructionsFragment : Fragment() {
     }
 
     fun onInventoryButtonClicked() {
-        val currentDestinationId = navController.currentDestination?.id
-        if (currentDestinationId == R.id.instructions_destination) {
-            navController.navigate(shoeListAction)
-        }
+        navigateToDestination(navController, shoeListAction, R.id.instructions_destination)
     }
-
 }

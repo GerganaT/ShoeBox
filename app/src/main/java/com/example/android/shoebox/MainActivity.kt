@@ -52,6 +52,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        val currentDestinationId = navController.currentDestination?.id
+        if (currentDestinationId == R.id.shoe_list_destination) {
+          //TODO show alert box
+        }
+        super.onBackPressed()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.shoe_menu, menu)
         val currentDestinationId = navController.currentDestination?.id
@@ -81,5 +89,7 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 }
 

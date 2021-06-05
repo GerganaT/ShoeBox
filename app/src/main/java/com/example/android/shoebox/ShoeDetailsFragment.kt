@@ -28,7 +28,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoeDetailsBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 // This class shows detailed info for each shoe pair,stored in the warehouse
 class ShoeDetailsFragment : Fragment() {
@@ -64,7 +63,10 @@ class ShoeDetailsFragment : Fragment() {
         //to exit the details screen and has some data typed in.This is initialized here
         //to avoid the overhead of creating objects of this type every time the cancel
         //button is clicked.
-        setupAlertDialog()
+        alertDialog = setupAlertDialog(
+            viewModel, navController,
+            shoeDetailsToShoeListAction, R.id.shoe_details_destination
+        )
         // Inflate the layout for this fragment
         return shoeDetailsBinding.root
     }
@@ -87,7 +89,10 @@ class ShoeDetailsFragment : Fragment() {
                     getString(R.string.toast_details_saved),
                     Toast.LENGTH_SHORT
                 ).show()
-                navigateToShoeList()
+                navigateToDestination(
+                    navController, shoeDetailsToShoeListAction,
+                    R.id.shoe_details_destination
+                )
             }
         })
     }
@@ -99,40 +104,13 @@ class ShoeDetailsFragment : Fragment() {
             if (shoeDetailsIsNotNull) {
                 alertDialog.show()
             } else {
-                navigateToShoeList()
+                navigateToDestination(
+                    navController, shoeDetailsToShoeListAction,
+                    R.id.shoe_details_destination
+                )
             }
         })
     }
-
-    private fun setupAlertDialog() {
-
-        alertDialog = MaterialAlertDialogBuilder(requireContext())
-            .setMessage(resources.getString(R.string.alert_dialog_question))
-
-            .setNegativeButton(resources.getString(R.string.alert_dialog_action_negative)) { dialog, _ ->
-                dialog.dismiss()
-            }
-            .setPositiveButton(resources.getString(R.string.alert_dialog_action_positive)) { _, _ ->
-                viewModel.resetShoeDataFields()
-                navigateToShoeList()
-            }
-            .create()
-        alertDialog.setOnShowListener {
-            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-                .setTextColor(resources.getColor(R.color.primaryTextColor, null))
-            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
-                .setTextColor(resources.getColor(R.color.primaryTextColor, null))
-        }
-    }
-
-    private fun navigateToShoeList() {
-        val currentDestinationId = navController.currentDestination?.id
-        if (currentDestinationId == R.id.shoe_details_destination) {
-            navController.navigate(shoeDetailsToShoeListAction)
-        }
-
-    }
-
 
 }
 

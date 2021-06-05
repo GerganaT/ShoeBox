@@ -54,12 +54,6 @@ class WelcomeFragment : Fragment() {
     }
 
     fun onInstructionsButtonClicked() {
-        val currentDestinationId = navController.currentDestination?.id
-        if (currentDestinationId == R.id.welcome_destination) {
-            navController.navigate(instructionsFragmentAction)
-        }
-
+        navigateToDestination(navController, instructionsFragmentAction, R.id.welcome_destination)
     }
-
-
 }
