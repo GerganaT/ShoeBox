@@ -27,10 +27,9 @@
     <string name="welcome_screen_button_label">Go to instructions</string>
     <string name="welcome_fragment_label">Welcome!</string>
     <string name="instructions_label">Instructions</string>
-    <string name="instructions_text">Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Sed augue lacus viverra vitae congue eu consequat.
-        Netus et malesuada fames ac. Ultrices vitae auctor eu augue. </string>
+    <string name="instructions_text">Once you tap the button below, you will go to the
+    shoes\' inventory. In order to add a new pair of shoes to it, click the plus-button to the lower
+    right corner of the screen.</string>
     <string name="inventory_button_label">view inventory</string>
     <string name="add_shoe_item_fab_content_description">Round dark-blue button with a black plus sign</string>
     <string name="more_icon_image_content_description">three black dots aligned vertically</string>
