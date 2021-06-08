@@ -24,6 +24,15 @@ import androidx.lifecycle.ViewModel
 // class that handles the shoe-data-related operations in the app
 class MainActivityViewModel : ViewModel() {
 
+    val userEmail = MutableLiveData<String>()
+
+    val userPassword = MutableLiveData<String>()
+
+    private val _loginDetailIsNullOrEmpty = MutableLiveData<Boolean>()
+    val loginDetailIsNullOrEmpty: LiveData<Boolean>
+        get() = _loginDetailIsNullOrEmpty
+
+
     val shoeName = MutableLiveData<String>()
 
 
@@ -33,18 +42,6 @@ class MainActivityViewModel : ViewModel() {
 
 
     val shoeDescription = MutableLiveData<String>()
-
-    // should these remain Mutable????????
-
-    val shoeListItemName = MutableLiveData<String>()
-
-
-    val shoeListItemBrand = MutableLiveData<String>()
-
-    val shoeListItemSize = MutableLiveData<String>()
-
-
-    val shoeListItemDescription = MutableLiveData<String>()
 
     private val _shoeDetailIsNullOrEmpty = MutableLiveData<Boolean>()
     val shoeDetailIsNullOrEmpty: LiveData<Boolean>
@@ -57,7 +54,6 @@ class MainActivityViewModel : ViewModel() {
     private val _shoesListLiveData = MutableLiveData<MutableList<Shoe>>()
     val shoesListLiveData: LiveData<MutableList<Shoe>>
         get() = _shoesListLiveData
-
 
 
     init {
@@ -106,29 +102,25 @@ class MainActivityViewModel : ViewModel() {
 
     /** Checks whether the user entered anything in the EditText fields, before exiting
      * the shoe details destination*/
-    fun checkDataEntry() {
+    fun checkShoeDetailsEntry() {
 
         _shoeDetailsIsNotNull.value =
             (!shoeName.value.isNullOrEmpty()) || (!shoeBrand.value.isNullOrEmpty())
                     || (!shoeSize.value.isNullOrEmpty()) || (!shoeDescription.value.isNullOrEmpty())
     }
 
-//    /** Populates the shoe list item fields with data if anything was added to the shoeList*/
-//    fun updateShoeDataFields() {
-//        if (_shoesListLiveData.value?.isNotEmpty() == true) {
-//            _shoesListLiveData.value?.forEach {
-//                shoeListItemName.value = it.shoeName
-//                shoeListItemSize.value = it.shoeSize
-//                shoeListItemBrand.value = it.shoeBrand
-//                shoeListItemDescription.value = it.shoeDescription
-//
-//            }
-//
-//            Log.i(
-//                "MainActivityViewModel", "${shoeListItemName.value} , ${shoeListItemSize.value}," +
-//                        "${shoeListItemBrand.value},${shoeListItemDescription.value}"
-//            )
-//
-//        }
-//    }
+    /** Checks if the user entered all the required login information and sets the values
+     * of the e-mail and password fields to zero when the user navigates away from the login screen*/
+    fun checkLoginDetailsEntry() {
+        _loginDetailIsNullOrEmpty.value = (userEmail.value.isNullOrEmpty()) ||
+                (userPassword.value.isNullOrEmpty())
+
+        if (_loginDetailIsNullOrEmpty.value == false) {
+            userEmail.value = null
+            userPassword.value = null
+        }
+
+    }
+
+
 }

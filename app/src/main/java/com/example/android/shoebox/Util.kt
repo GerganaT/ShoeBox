@@ -75,7 +75,7 @@ fun ShoeDetailsFragment.validateUserInput(navController: NavController,viewModel
 alertDialog: AlertDialog, action: NavDirections){
     val currentDestinationId = navController.currentDestination?.id
     if (currentDestinationId == R.id.shoe_details_destination){
-        viewModel.checkDataEntry()
+        viewModel.checkShoeDetailsEntry()
         viewModel.shoeDetailsIsNotNull.observe(this, { shoeDetailsIsNotNull ->
 
             if (shoeDetailsIsNotNull) {

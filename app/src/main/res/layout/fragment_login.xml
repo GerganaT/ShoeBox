@@ -22,6 +22,9 @@
         <variable
             name="loginFragment"
             type="com.example.android.shoebox.LoginFragment" />
+        <variable
+            name="viewModel"
+            type="com.example.android.shoebox.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,6 +54,7 @@
             android:id="@+id/email_edit_text"
             style="@style/EditTextStyleHandles"
             android:hint="@string/email_edit_hint"
+            android:text="@={viewModel.userEmail}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email_label_text" />
@@ -59,6 +63,7 @@
             android:id="@+id/password_edit_text"
             style="@style/EditTextStyleHandles"
             android:hint="@string/password_edit_hint"
+            android:text="@={viewModel.userPassword}"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

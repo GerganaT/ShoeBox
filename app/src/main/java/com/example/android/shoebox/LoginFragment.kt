@@ -18,8 +18,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -31,6 +33,7 @@ import com.example.android.shoebox.databinding.FragmentLoginBinding
 open class LoginFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var welcomeFragmentAction: NavDirections
+    private lateinit var viewModel: MainActivityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,15 +45,29 @@ open class LoginFragment : Fragment() {
             inflater, R.layout.fragment_login, container, false
         )
 
+        val parentActivityViewModel: MainActivityViewModel by activityViewModels()
+        viewModel = parentActivityViewModel
+
         navController = findNavController(this)
         welcomeFragmentAction =
             LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
         loginBinding.loginFragment = this
+        loginBinding.viewModel = viewModel
+        loginBinding.lifecycleOwner = this
 
         return loginBinding.root
     }
 
     fun onLoginOrRegisterButtonClicked() {
-        navigateToDestination(navController, welcomeFragmentAction, R.id.login_destination)
+        viewModel.checkLoginDetailsEntry()
+        viewModel.loginDetailIsNullOrEmpty.observe(this, { loginDetailsNullOrEmpty ->
+            if (loginDetailsNullOrEmpty) {
+                Toast.makeText(activity, R.string.toast_enter_details, Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                navigateToDestination(navController, welcomeFragmentAction, R.id.login_destination)
+            }
+
+        })
     }
 }
