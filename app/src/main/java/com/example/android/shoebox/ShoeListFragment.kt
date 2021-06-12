@@ -103,7 +103,7 @@ class ShoeListFragment : Fragment() {
     fun setVisibility(): Int {
         var visibility = 0
         val shoesListIsEmpty = viewModel.shoeListIsEmpty
-        shoesListIsEmpty.observe(this@ShoeListFragment, { isListEmpty ->
+        shoesListIsEmpty.observe(this, { isListEmpty ->
             visibility = if (isListEmpty) {
                 View.VISIBLE
             } else {
