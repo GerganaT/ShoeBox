@@ -17,13 +17,9 @@
     tools:context=".ShoeListFragment">
 
     <data>
-        <import type="android.view.View"/>
         <variable
             name="shoeListFragment"
             type="com.example.android.shoebox.ShoeListFragment" />
-        <variable
-            name="viewModel"
-            type="com.example.android.shoebox.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,7 +53,7 @@
         <TextView
             android:id="@+id/empty_shoe_list_text"
             style="@style/EmptyShoeListTextStyle"
-            android:visibility="@{viewModel.shoeListIsEmpty? View.VISIBLE : View.GONE}"
+            android:visibility="@{shoeListFragment.setVisibility()}"
             android:text="@string/empty_shoe_list"
             app:layout_constraintBottom_toBottomOf="@+id/scroll_view"
             app:layout_constraintEnd_toEndOf="@+id/scroll_view"

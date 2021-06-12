@@ -56,7 +56,6 @@ class ShoeListFragment : Fragment() {
             ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment()
 
         shoeListBinding.shoeListFragment = this
-        shoeListBinding.viewModel = viewModel
 
         shoeListBinding.lifecycleOwner = this
 
@@ -98,6 +97,21 @@ class ShoeListFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.shoe_list_item, container, false)
 
 
+    }
+
+    /** Show text instructions on screen when the shoe list is empty */
+    fun setVisibility(): Int {
+        var visibility = 0
+        val shoesListIsEmpty = viewModel.shoeListIsEmpty
+        shoesListIsEmpty.observe(this@ShoeListFragment, { isListEmpty ->
+            visibility = if (isListEmpty) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        })
+
+        return visibility
     }
 
 }
