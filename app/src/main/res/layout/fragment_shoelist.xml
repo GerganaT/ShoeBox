@@ -17,9 +17,13 @@
     tools:context=".ShoeListFragment">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="shoeListFragment"
             type="com.example.android.shoebox.ShoeListFragment" />
+        <variable
+            name="viewModel"
+            type="com.example.android.shoebox.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,6 +53,16 @@
 
 
         </ScrollView>
+
+        <TextView
+            android:id="@+id/empty_shoe_list_text"
+            style="@style/EmptyShoeListTextStyle"
+            android:visibility="@{viewModel.shoeListIsEmpty? View.VISIBLE : View.GONE}"
+            android:text="@string/empty_shoe_list"
+            app:layout_constraintBottom_toBottomOf="@+id/scroll_view"
+            app:layout_constraintEnd_toEndOf="@+id/scroll_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_shoe_item_fab"

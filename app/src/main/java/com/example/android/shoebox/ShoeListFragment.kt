@@ -56,6 +56,7 @@ class ShoeListFragment : Fragment() {
             ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment()
 
         shoeListBinding.shoeListFragment = this
+        shoeListBinding.viewModel = viewModel
 
         shoeListBinding.lifecycleOwner = this
 

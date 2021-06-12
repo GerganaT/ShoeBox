@@ -55,9 +55,13 @@ class MainActivityViewModel : ViewModel() {
     val shoesListLiveData: LiveData<MutableList<Shoe>>
         get() = _shoesListLiveData
 
+    private val _shoeListIsEmpty = MutableLiveData<Boolean>()
+    val shoeListIsEmpty: LiveData<Boolean>
+    get() = _shoeListIsEmpty
 
     init {
         _shoesListLiveData.value = mutableListOf()
+        _shoeListIsEmpty.value = true
 
     }
 
@@ -87,6 +91,7 @@ class MainActivityViewModel : ViewModel() {
                 "MainActivityViewModel", "${shoeName.value} , ${shoeBrand.value}," +
                         "${shoeSize.value},${shoeDescription.value}"
             )
+            _shoeListIsEmpty.value = false
         }
 
     }
@@ -110,7 +115,7 @@ class MainActivityViewModel : ViewModel() {
     }
 
     /** Checks if the user entered all the required login information and sets the values
-     * of the e-mail and password fields to zero when the user navigates away from the login screen*/
+     * of the e-mail and password fields to null when the user navigates away from the login screen*/
     fun checkLoginDetailsEntry() {
         _loginDetailIsNullOrEmpty.value = (userEmail.value.isNullOrEmpty()) ||
                 (userPassword.value.isNullOrEmpty())

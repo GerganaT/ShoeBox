@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--    Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?>
+<!--    Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -40,6 +41,11 @@
         <item name="android:layout_weight">@dimen/welcome_screen_title_text_weight</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/welcome_screen_subtitle_text_size</item>
+    </style>
+    <style name="EmptyShoeListTextStyle" parent="LabelsStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
     </style>
 
     <style name="EditTextStyle">
@@ -127,5 +133,7 @@
         <item name="android:src">@drawable/ic_baseline_add_24</item>
         <item name="backgroundTint">@color/secondaryDarkColor</item>
     </style>
+
+
 
 </resources>
