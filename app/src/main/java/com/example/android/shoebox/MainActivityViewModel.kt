@@ -57,7 +57,7 @@ class MainActivityViewModel : ViewModel() {
 
     private val _shoeListIsEmpty = MutableLiveData<Boolean>()
     val shoeListIsEmpty: LiveData<Boolean>
-    get() = _shoeListIsEmpty
+        get() = _shoeListIsEmpty
 
     init {
         _shoesListLiveData.value = mutableListOf()
