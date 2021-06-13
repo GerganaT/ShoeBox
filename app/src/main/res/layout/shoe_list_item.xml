@@ -17,7 +17,8 @@
 <!--    given the complexity of the layout-->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -32,21 +33,31 @@
         android:layout_margin="@dimen/margin_default">
 
         <TextView
+            android:id="@+id/sizes_label_text"
+            style="@style/ShoeListLabelStyle"
+            android:text="@string/sizes_text_label"
+            android:textSize="@dimen/shoe_info_text_size"
+            app:layout_constraintBaseline_toBaselineOf="@+id/shoe_size_info_text"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
             android:id="@+id/shoe_size_info_text"
             style="@style/ShoeListLabelStyle"
+            android:text="@{shoe.shoeSize}"
             android:textSize="@dimen/shoe_info_text_size"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sizes_label_text"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_label_text"
-            android:text="@{shoe.shoeSize}"/>
+            tools:text="36,37" />
 
         <TextView
             android:id="@+id/shoe_name_label_text"
             style="@style/ShoeListLabelStyle"
+            android:text="@{shoe.shoeName}"
             android:textSize="@dimen/shoe_name_text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@{shoe.shoeName}"/>
+            tools:text="Fancy shoes" />
 
         <TextView
             android:id="@+id/shoe_brand_text"
@@ -54,7 +65,8 @@
             android:textSize="@dimen/shoe_list_meta_data_text_size"
             app:layout_constraintBaseline_toBaselineOf="@+id/shoe_name_label_text"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@{shoe.shoeBrand}"/>
+            android:text="@{shoe.shoeBrand}"
+            tools:text="fancy brand"/>
 
         <TextView
             android:id="@+id/shoe_description_text"
@@ -62,7 +74,8 @@
             android:textSize="@dimen/shoe_info_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_size_info_text"
-            android:text="@{shoe.shoeDescription}"/>
+            android:text="@{shoe.shoeDescription}"
+            tools:text="fancy description"/>
 
         <TextView
             android:id="@+id/divider_view"

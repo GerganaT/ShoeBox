@@ -51,4 +51,5 @@
     <string name="shoe_details_fragment_label">Add new item</string>
     <string name="empty_shoe_list">There\'s nothing here yet.\n To add a new shoe item,\ntap the
         plus button \n to the lower right side.</string>
+    <string name="sizes_text_label">"Sizes: "</string>
 </resources>
