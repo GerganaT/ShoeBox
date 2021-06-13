@@ -28,7 +28,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentWelcomeBinding
 
-// This class contains the welcome screen logic
+/** This class contains the welcome screen logic */
 class WelcomeFragment : Fragment() {
 
     private lateinit var instructionsFragmentAction: NavDirections
@@ -49,7 +49,7 @@ class WelcomeFragment : Fragment() {
 
 
         welcomeBinding.welcomeFragment = this
-        // Inflate the layout for this fragment
+
         return welcomeBinding.root
     }
 

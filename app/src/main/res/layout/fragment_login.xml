@@ -14,6 +14,9 @@
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
 
+<!--    ConstraintLayout used here to achieve flat view hierarchy,-->
+<!--    given the complexity of the layout-->
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">

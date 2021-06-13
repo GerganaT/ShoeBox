@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?>
+<!--    Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -26,7 +27,7 @@
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcome_destination"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right"
+            app:exitAnim="@anim/slide_out_left"
             app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
@@ -38,7 +39,7 @@
             android:id="@+id/action_welcomeFragment_to_instructionsFragment"
             app:destination="@id/instructions_destination"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right"
+            app:exitAnim="@anim/slide_out_left"
             app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
@@ -70,6 +71,7 @@
             android:id="@+id/action_shoe_list_destination_to_login_destination"
             app:destination="@id/login_destination"
             app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/fade_out"
             app:popUpTo="@id/login_destination" />
 
     </fragment>

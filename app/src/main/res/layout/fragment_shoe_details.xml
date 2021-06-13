@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--     Copyright 2021,  Gergana Kirilova-->
+<?xml version="1.0" encoding="utf-8"?>
+<!--     Copyright 2021,  Gergana Kirilova-->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -12,9 +13,23 @@
 <!--    See the License for the specific language governing permissions and-->
 <!--    limitations under the License.-->
 
+<!--    ConstraintLayout used here to achieve flat view hierarchy,-->
+<!--    given the complexity of the layout-->
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.shoebox.MainActivityViewModel" />
+        <variable
+            name="shoeDetailsFragment"
+            type="com.example.android.shoebox.ShoeDetailsFragment" />
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/shoe_details_root"
@@ -104,17 +119,5 @@
             app:layout_constraintTop_toBottomOf="@+id/available_sizes_edit_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.example.android.shoebox.MainActivityViewModel" />
-        <variable
-            name="shoeDetailsFragment"
-            type="com.example.android.shoebox.ShoeDetailsFragment" />
-
-    </data>
-
 
 </layout>

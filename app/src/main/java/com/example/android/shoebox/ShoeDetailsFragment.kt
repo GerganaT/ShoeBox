@@ -31,7 +31,8 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoeDetailsBinding
 
-// This class shows detailed info for each shoe pair,stored in the warehouse
+/** This class captures the new shoe item details,
+ *  which the user enters in the shoe details destination*/
 class ShoeDetailsFragment : Fragment() {
 
     lateinit var shoeDetailsToShoeListAction: NavDirections
@@ -61,24 +62,21 @@ class ShoeDetailsFragment : Fragment() {
             ShoeDetailsFragmentDirections.actionShoeDetailsDestinationToShoeListDestination()
 
         navController = findNavController()
-        // this method instantiates the AlertDialog which pops up when the user tries
-        //to exit the details screen and has some data typed in.This is initialized here
-        //to avoid the overhead of creating objects of this type every time the cancel
-        //button is clicked.
-        alertDialog = setupAlertDialog(
+
+        alertDialog = setupCustomAlertDialog(
             viewModel, navController,
             shoeDetailsToShoeListAction, R.id.shoe_details_destination
         )
-        // Inflate the layout for this fragment
+
         return shoeDetailsBinding.root
     }
 
     fun onSaveClicked() {
 
-        viewModel.saveDetailDataEntry()
-        viewModel.shoeDetailIsNullOrEmpty.observe(this, { shoeDetailsIsNull ->
+        viewModel.saveShoeDetails()
+        viewModel.shoeDetailIsNullOrEmpty.observe(this) { detailIsNullOrEmpty ->
 
-            if (shoeDetailsIsNull) {
+            if (detailIsNullOrEmpty) {
                 Toast.makeText(
                     activity,
                     getString(R.string.toast_enter_details),
@@ -96,7 +94,7 @@ class ShoeDetailsFragment : Fragment() {
                     R.id.shoe_details_destination
                 )
             }
-        })
+        }
     }
 
     fun onCancelClicked() {
@@ -104,10 +102,12 @@ class ShoeDetailsFragment : Fragment() {
             navController,
             viewModel,
             alertDialog,
-            shoeDetailsToShoeListAction)
+            shoeDetailsToShoeListAction
+        )
     }
-    // show AlertDialog whenever the user attempts to navigate back
-    // from the ShoeDetails destination but has some data entered in the EditText fields
+
+    // display an AlertDialog whenever the user attempts to back - navigate
+    // from the shoe details destination but has some unsaved data entered in the EditText fields
     override fun onAttach(context: Context) {
         super.onAttach(context)
 

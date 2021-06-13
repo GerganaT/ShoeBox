@@ -27,7 +27,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentInstructionsBinding
 
-//This class inflates the fragment,which contains the usage instructions
+/** This class inflates the fragment,which contains the usage instructions */
 class InstructionsFragment : Fragment() {
     lateinit var navController: NavController
     lateinit var shoeListAction: NavDirections
@@ -46,7 +46,6 @@ class InstructionsFragment : Fragment() {
             InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment()
 
         instructionsBinding.instructionsFragment = this
-        // Inflate the layout for this fragment
         return instructionsBinding.root
     }
 

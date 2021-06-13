@@ -21,14 +21,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import android.view.View
 
-// utility methods for navigation and data validation
+/** Utility methods used for custom AlertDialog instantiation ,
+ *  user-input validation and navigation */
 
 
-// data validation
 @SuppressLint("NewApi")
-fun Fragment.setupAlertDialog(
+fun Fragment.setupCustomAlertDialog(
     viewModel: MainActivityViewModel,
     navController: NavController,
     action: NavDirections,
@@ -56,30 +55,37 @@ fun Fragment.setupAlertDialog(
     return alertDialog
 }
 
-
-// navigation methods
+/** Navigates to the specified in the action destination.
+ *  An internal check avoids possible "action not found on current destination" error */
 
 fun Fragment.navigateToDestination(
     navController: NavController,
     action: NavDirections,
-    destinationIdProvided: Int
+    destinationIdToCompareTo: Int
 ) {
     val currentDestinationId = navController.currentDestination?.id
-    if (currentDestinationId == destinationIdProvided) {
+    if (currentDestinationId == destinationIdToCompareTo) {
         navController.navigate(action)
     }
 
 }
-/** Check whether the user entered anything,which he didn't save and show an alert dialog if
- * that's the case.Else - navigate to the shoe list destination*/
-fun ShoeDetailsFragment.validateUserInput(navController: NavController,viewModel: MainActivityViewModel,
-alertDialog: AlertDialog, action: NavDirections){
-    val currentDestinationId = navController.currentDestination?.id
-    if (currentDestinationId == R.id.shoe_details_destination){
-        viewModel.checkShoeDetailsEntry()
-        viewModel.shoeDetailsIsNotNull.observe(this, { shoeDetailsIsNotNull ->
 
-            if (shoeDetailsIsNotNull) {
+/** Check whether the user entered anything,which he didn't save and show an alert dialog if
+ * that's the case.
+ * Else - navigate away to the shoe list destination*/
+
+fun ShoeDetailsFragment.validateUserInput(
+    navController: NavController,
+    viewModel: MainActivityViewModel,
+    alertDialog: AlertDialog,
+    action: NavDirections
+) {
+    val currentDestinationId = navController.currentDestination?.id
+    if (currentDestinationId == R.id.shoe_details_destination) {
+        viewModel.checkShoeDetailsEntry()
+        viewModel.shoeDetailsIsNotNullOrEmpty.observe(this) { detailsIsNotNullOrEmpty ->
+
+            if (detailsIsNotNullOrEmpty) {
                 alertDialog.show()
             } else {
                 navigateToDestination(
@@ -87,6 +93,6 @@ alertDialog: AlertDialog, action: NavDirections){
                     R.id.shoe_details_destination
                 )
             }
-        })
+        }
     }
 }

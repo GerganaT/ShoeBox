@@ -15,13 +15,12 @@ limitations under the License.
 
 package com.example.android.shoebox
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 
-// class that handles the shoe-data-related operations in the app
+/** This class handles all data-related logic in the app */
 class MainActivityViewModel : ViewModel() {
 
     val userEmail = MutableLiveData<String>()
@@ -47,9 +46,9 @@ class MainActivityViewModel : ViewModel() {
     val shoeDetailIsNullOrEmpty: LiveData<Boolean>
         get() = _shoeDetailIsNullOrEmpty
 
-    private val _shoeDetailsIsNotNull = MutableLiveData<Boolean>()
-    val shoeDetailsIsNotNull: LiveData<Boolean>
-        get() = _shoeDetailsIsNotNull
+    private val _shoeDetailsIsNotNullOrEmpty = MutableLiveData<Boolean>()
+    val shoeDetailsIsNotNullOrEmpty: LiveData<Boolean>
+        get() = _shoeDetailsIsNotNullOrEmpty
 
     private val _shoesListLiveData = MutableLiveData<MutableList<Shoe>>()
     val shoesListLiveData: LiveData<MutableList<Shoe>>
@@ -67,7 +66,7 @@ class MainActivityViewModel : ViewModel() {
 
     /** Checks whether the user entered anything in the EditText fields in the shoe details
      * destination and saves the entry if the text is not null or an empty string*/
-    fun saveDetailDataEntry() {
+    fun saveShoeDetails() {
 
         if ((shoeName.value.isNullOrEmpty()) || (shoeBrand.value.isNullOrEmpty())
             || (shoeSize.value.isNullOrEmpty()) || (shoeDescription.value.isNullOrEmpty())
@@ -84,19 +83,14 @@ class MainActivityViewModel : ViewModel() {
                     shoeDescription.value
                 )
             )
-            Log.i("MainActivityViewModel", "list is ${_shoesListLiveData.value}")
             _shoeDetailIsNullOrEmpty.value = false
             resetShoeDataFields()
-            Log.i(
-                "MainActivityViewModel", "${shoeName.value} , ${shoeBrand.value}," +
-                        "${shoeSize.value},${shoeDescription.value}"
-            )
             _shoeListIsEmpty.value = false
         }
 
     }
 
-    /** Resets the values to introduce blank edit text fields the next time
+    /** Resets the values to introduce blank EditText fields the next time
     the user wants to add new shoe list item */
     fun resetShoeDataFields() {
         shoeName.value = null
@@ -105,16 +99,16 @@ class MainActivityViewModel : ViewModel() {
         shoeDescription.value = null
     }
 
-    /** Checks whether the user entered anything in the EditText fields, before exiting
-     * the shoe details destination*/
+    /** Checks whether the user entered anything in the EditText fields,
+     * before navigating away from the shoe details destination*/
     fun checkShoeDetailsEntry() {
 
-        _shoeDetailsIsNotNull.value =
+        _shoeDetailsIsNotNullOrEmpty.value =
             (!shoeName.value.isNullOrEmpty()) || (!shoeBrand.value.isNullOrEmpty())
                     || (!shoeSize.value.isNullOrEmpty()) || (!shoeDescription.value.isNullOrEmpty())
     }
 
-    /** Checks if the user entered all the required login information and sets the values
+    /** Checks whether the user entered all the required login information and sets the values
      * of the e-mail and password fields to null when the user navigates away from the login screen*/
     fun checkLoginDetailsEntry() {
         _loginDetailIsNullOrEmpty.value = (userEmail.value.isNullOrEmpty()) ||

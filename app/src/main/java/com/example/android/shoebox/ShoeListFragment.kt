@@ -31,7 +31,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.android.shoebox.databinding.FragmentShoelistBinding
 import com.example.android.shoebox.databinding.ShoeListItemBinding
 
-// This class inflates the list of shoes in the shoe inventory
+/** This class handles the shoe item list logic */
 class ShoeListFragment : Fragment() {
 
     private lateinit var navController: NavController
@@ -62,7 +62,7 @@ class ShoeListFragment : Fragment() {
         navController = findNavController()
 
         observeShoeList(inflater, container)
-        // show the logout menu only in this fragment as per requirements
+        // show the logout-menu only in this fragment as per project requirements
         setHasOptionsMenu(true)
 
         return shoeListBinding.root
@@ -71,7 +71,7 @@ class ShoeListFragment : Fragment() {
     private fun observeShoeList(inflater: LayoutInflater, container: ViewGroup?) {
         val shoesList = viewModel.shoesListLiveData
         val linearLayout = shoeListBinding.inScrollLinearLayout
-        shoesList.observe(this, { shoeList ->
+        shoesList.observe(this) { shoeList ->
             shoeList.forEach { shoe ->
                 val shoeListItem = ShoeListItem(inflater, container, requireContext())
                 val shoeListItemRootView = shoeListItem.shoeListItemBinding.root
@@ -79,9 +79,10 @@ class ShoeListFragment : Fragment() {
                 linearLayout.addView(shoeListItemRootView)
             }
 
-        })
+        }
     }
 
+    //Navigate to the shoe details destination whenever the fab is clicked
     fun onFabClicked() {
         navigateToDestination(navController, shoeDetailsAction, R.id.shoe_list_destination)
     }
@@ -98,19 +99,20 @@ class ShoeListFragment : Fragment() {
 
     }
 
-    /** Show text instructions on screen when the shoe list is empty */
+    /** Show instructions on screen,regarding how to add the first shoe item,
+     *  when the shoe list is empty */
     fun setVisibility(): Int {
-        var visibility = 0
-        val shoesListIsEmpty = viewModel.shoeListIsEmpty
-        shoesListIsEmpty.observe(this, { isListEmpty ->
-            visibility = if (isListEmpty) {
+        var emptyListTextViewVisibility = 0
+        val shoeListIsEmpty = viewModel.shoeListIsEmpty
+        shoeListIsEmpty.observe(this) { listIsEmpty ->
+            emptyListTextViewVisibility = if (listIsEmpty) {
                 View.VISIBLE
             } else {
                 View.GONE
             }
-        })
+        }
 
-        return visibility
+        return emptyListTextViewVisibility
     }
 
 }

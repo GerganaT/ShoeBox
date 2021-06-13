@@ -28,7 +28,7 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.android.shoebox.databinding.FragmentLoginBinding
 
 
-// LoginFragment is class, used to capture the user's login data.
+/** LoginFragment is class, used to capture the user's login data. */
 
 open class LoginFragment : Fragment() {
     private lateinit var navController: NavController
@@ -60,7 +60,7 @@ open class LoginFragment : Fragment() {
 
     fun onLoginOrRegisterButtonClicked() {
         viewModel.checkLoginDetailsEntry()
-        viewModel.loginDetailIsNullOrEmpty.observe(this, { loginDetailsNullOrEmpty ->
+        viewModel.loginDetailIsNullOrEmpty.observe(this) { loginDetailsNullOrEmpty ->
             if (loginDetailsNullOrEmpty) {
                 Toast.makeText(activity, R.string.toast_enter_details, Toast.LENGTH_SHORT)
                     .show()
@@ -68,6 +68,6 @@ open class LoginFragment : Fragment() {
                 navigateToDestination(navController, welcomeFragmentAction, R.id.login_destination)
             }
 
-        })
+        }
     }
 }

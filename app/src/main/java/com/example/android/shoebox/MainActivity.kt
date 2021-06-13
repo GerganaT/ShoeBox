@@ -27,6 +27,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.android.shoebox.databinding.ActivityMainBinding
 
+/** This class is the entry point of the app and holds some app bar and menu-related logic */
+
 class MainActivity : AppCompatActivity() {
 
 
@@ -34,6 +36,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // this variable is not referenced to anywhere but necessary as the Binding type cannot
+        // be inferred
         val mainBinding: ActivityMainBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_main
         )
@@ -69,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                     .actionShoeListDestinationToLoginDestination()
                 navController.navigate(loginDestination)
             }
-            // ensure proper backstack navigation via the up arrow button by adopting the same
+            // ensure proper backstack navigation via the up-arrow button by adopting the same
             //behaviour as the back-button
             // idea taken from here :
             //https://stackoverflow.com/questions/28438030/
