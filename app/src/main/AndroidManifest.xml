@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--    Copyright 2021, Gergana Kirilova -->
+<?xml version="1.0" encoding="utf-8"?><!--    Copyright 2021, Gergana Kirilova -->
 
 <!--    Licensed under the Apache License, Version 2.0 (the "License");-->
 <!--    you may not use this file except in compliance with the License.-->
@@ -22,7 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoeBox">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
