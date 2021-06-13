@@ -2,7 +2,7 @@
 
 The purpose 
 ===========
-My first project for the Udacity Kotlin Android Developer Nanodegree 
+My first project for the Udacity Kotlin Android Developer Nanodegree.
 The purpose of this project is to make use of the MVVM architectural pattern and implement it by using best practices.
 So far the UI-layer of the Application Architecture is being applied.
 
