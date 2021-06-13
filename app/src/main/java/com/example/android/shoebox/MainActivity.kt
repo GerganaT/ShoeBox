@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.host_fragment)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
