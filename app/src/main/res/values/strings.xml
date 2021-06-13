@@ -49,6 +49,6 @@
     <string name="instructions_fragment_label">Instructions</string>
     <string name="shoe_list_fragment_label">Inventory</string>
     <string name="shoe_details_fragment_label">Add new item</string>
-    <string name="empty_shoe_list">Hmm.. there\'s nothing here.\n To add a new shoe item,\ntap the
+    <string name="empty_shoe_list">There\'s nothing here yet.\n To add a new shoe item,\ntap the
         plus button \n to the lower right side.</string>
 </resources>
